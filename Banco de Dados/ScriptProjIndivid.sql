@@ -33,19 +33,6 @@ insert into Títulos values
 (10, 'Mario Kart Tour', '2019-09-25', 'Celulares', 'Pistas Baseadas em Cidades Reais', 1),
 (11, 'Mario Kart World', '2025-06-05', 'Nintendo Switch 2', 'Mundo Aberto', 1);
 
-create table Pistas(
-ceTitulos int,
-ceCopa int,
-idPistas int,
-Nome varchar(60) not null,
-Tematica varchar (45),
-Formato varchar(15),
-constraint chkFormato
-check (Formato in ('Seções', 'Voltas')),
-primary key (ceTitulos, ceCopa, idPistas),
-foreign key (ceTitulos) references Títulos(idTitulos),
-foreign key (ceCopa) references Copa(idCopa));
-
 create table Copa(
 idCopa int primary key,
 Nome varchar(20));
@@ -74,7 +61,21 @@ insert into Copa values
 (21, 'Feather Cup'),
 (22, 'Cherry Cup'),
 (23, 'Acorn Cup'),
-(24, 'Spiny Cup');
+(24, 'Spiny Cup'),
+(25, 'Outros');
+
+create table Pistas(
+ceTitulos int,
+ceCopa int,
+idPistas int,
+Nome varchar(60) not null,
+Tematica varchar (45),
+Formato varchar(15),
+constraint chkFormato
+check (Formato in ('Seções', 'Voltas')),
+primary key (ceTitulos, ceCopa, idPistas),
+foreign key (ceTitulos) references Títulos(idTitulos),
+foreign key (ceCopa) references Copa(idCopa));
 
 insert into Pistas values
 (1, 1, 1, 'Mario Circuit 1', 'Circuito', 'Voltas'),
@@ -224,6 +225,32 @@ insert into Pistas values
 (8, 12, 4, 'Big Blue', null, 'Seções'),
 (9, 16, 4, 'Sky-High Sundae', null, 'Voltas'),
 (9, 19, 4, "Yoshi's Island", null, 'Voltas'),
+(10, 25, 1, 'New York Minute', 'Cidade', 'Voltas'),
+(10, 25, 2, 'Tokyo Blur', 'Cidade', 'Voltas'),
+(10, 25, 3, 'Paris Promenade', 'Cidade', 'Voltas'),
+(10, 25, 4, 'London Loop', 'Cidade', 'Voltas'),
+(10, 25, 5, 'Vancouver Velocity', 'Cidade', 'Voltas'),
+(10, 25, 6, 'Los Angeles Laps', 'Cidade', 'Voltas'),
+(10, 25, 7, 'Berlin Byways', 'Cidade', 'Voltas'),
+(10, 25, 8, 'Sydney Sprint', 'Cidade', 'Voltas'),
+(10, 25, 9, 'Singapore Speedway', 'Cidade', 'Voltas'),
+(10, 25, 10, 'Amsterdam Drift', 'Cidade', 'Voltas'),
+(10, 25, 11, 'Bangkok Rush', 'Cidade', 'Voltas'),
+(10, 25, 12, 'Athens Dash', 'Cidade', 'Voltas'),
+(10, 25, 13, 'Rome Avanti', 'Cidade', 'Voltas'),
+(10, 25, 14, 'Merry Mountain', 'Neve', 'Voltas'),
+(10, 25, 15, 'Ninja Hideaway', null, 'Voltas'),
+(10, 25, 16, 'Piranha Plant Cove', null, 'Voltas'),
+(10, 25, 17, 'Piranha Plant Pipeline', null, 'Voltas'),
+(10, 25, 18, 'RMX Mario Circuit 1', 'Circuito', 'Voltas'),
+(10, 25, 19, 'RMX Choco Island 1', null, 'Voltas'),
+(10, 25, 20, 'RMX Rainbow Road 1', 'Espacial', 'Voltas'),
+(10, 25, 21, 'RMX Rainbow Road 2', 'Espacial', 'Voltas'),
+(10, 25, 22, 'RMX Choco Island 2', null, 'Voltas'),
+(10, 25, 23, 'RMX Vanilla Lake 1', 'Neve', 'Voltas'),
+(10, 25, 24, 'RMX Ghost Valley 1', 'Assombrado', 'Voltas'),
+(10, 25, 25, 'RMX Bowser Castle 1', 'Fogo', 'Voltas'),
+(10, 25, 26, 'RMX Donut Plains 1', null, 'Voltas'),
 (11, 1, 1, 'Mario Bros. Circuit', 'Circuito', 'Voltas'),
 (11, 1, 2, 'Crown City', 'Cidade', 'Voltas'),
 (11, 1, 3, 'Whistletop Summit', null, 'Voltas'),
@@ -242,94 +269,6 @@ insert into Pistas values
 (11, 4, 3, 'Peach Stadium', 'Estádio', 'Voltas'),
 (11, 4, 4, "Rainbow Road", 'Espacial', 'Voltas');
 
-create table Pilotos(
-ceTitulos int,
-cePeso int,
-idPilotos int,
-Nome varchar(45) not null,
-GameOrigem varchar(45),
-primary key (ceTitulos, cePeso, idPilotos),
-foreign key (ceTitulos) references Títulos(idTitulos),
-foreign key (cePeso) references Peso(idPeso));
-
-insert into Pilotos values
-(1, 5, 1, 'Mario', 'Donkey Kong'),
-(1, 5, 2, 'Luigi', 'Mario Bros.'),
-(1, 4, 3, 'Peach', 'Super Mario Bros.'),
-(1, 3, 4, 'Toad', 'Super Mario Bros.'),
-(1, 4, 5, 'Yoshi', 'Super Mario World'),
-(1, 3, 6, 'Koopa Troopa', 'Super Mario Bros.'),
-(1, 7, 7, 'Donkey Kong Jr.', 'Donkey Kong Jr.'),
-(1, 8, 8, 'Bowser', 'Super Mario Bros.'),
-(2, 7, 9, 'Donkey Kong', 'Donkey Kong'),
-(2, 7, 10, 'Wario', 'Super Mario Land 2: 6 Golden Coins'),
-(4, 5, 11, 'Birdo', 'Super Mario Bros. 2'),
-(4, 4, 12, 'Daisy', 'Super Mario Land'),
-(4, 3, 13, 'Toadette', 'Mario Kart: Double Dash!!'),
-(4, 2, 14, 'Baby Mario', "Super Mario World 2: Yoshi's Island"),
-(4, 2, 15, 'Baby Luigi', "Super Mario World 2: Yoshi's Island"),
-(4, 3, 16, 'Koopa Paratroopa', 'Super Mario Bros.'),
-(4, 5, 17, 'Diddy Kong', 'Donkey Kong Country'),
-(4, 5, 18, 'Bowser Jr.', 'Super Mario Sunshine'),
-(4, 7, 19, 'Waluigi', 'Mario Tennis'),
-(4, 6, 20, 'King Boo', "Luigi's Mansion"),
-(4, 7, 21, 'Petey Piranha', 'Super Mario Sunshine'),
-(5, 2, 22, 'Dry Bones', 'Super Mario Bros. 3'),
-(5, 7, 23, 'R.O.B.', 'Gyromite'),
-(5, 3, 24, 'Shy Guy', 'Super Mario Bros. 2'),
-(6, 1, 25, 'Baby Peach', 'Mario & Luigi: Partners in Time'),
-(6, 1, 26, 'Baby Daisy', 'Mario Kart Wii'),
-(6, 6, 27, 'Rosalina', 'Super Mario Galaxy'),
-(6, 7, 28, 'Dry Bowser', 'New Super Mario Bros.'),
-(6, 7, 29, 'Funky Kong', 'Donkey Kong Country'),
-(6, 5, 30, 'Mii', null),
-(7, 7, 31, 'Metal Mario', 'Super Mario 64'),
-(7, 7, 32, 'Honey Queen', 'Super Mario Galaxy'),
-(7, 7, 33, 'Wiggler', 'Super Mario World'),
-(7, 3, 34, 'Lakitu', 'Super Mario Bros.'),
-(8, 2, 35, 'Baby Rosalina', 'Mario Kart 8'),
-(8, 7, 36, 'Pink Gold Peach', 'Mario Kart 8'),
-(8, 3, 37, 'Lemmy', 'Super Mario Bros. 3'),
-(8, 3, 38, 'Larry', 'Super Mario Bros. 3'),
-(8, 3, 39, 'Wendy', 'Super Mario Bros. 3'),
-(8, 5, 40, 'Iggy', 'Super Mario Bros. 3'),
-(8, 5, 41, 'Ludwig', 'Super Mario Bros. 3'),
-(8, 7, 42, 'Morton', 'Super Mario Bros. 3'),
-(8, 7, 43, 'Roy', 'Super Mario Bros. 3'),
-(8, 7, 44, 'Link', 'The Legend of Zelda'),
-(8, 5, 45, 'Villager', 'Animal Crossing'),
-(8, 3, 46, 'Isabelle', 'Animal Crossing: New Leaf'),
-(8, 5, 47, 'Tanooki Mario', 'Super Mario Bros. 3'),
-(8, 5, 48, 'Cat Peach', 'Super Mario 3D World'),
-(9, 5, 49, 'Inkling', 'Splatoon'),
-(9, 5, 50, 'Kamek', "Super Mario World 2: Yoshi's Island"),
-(9, 7, 51, 'Pauline', 'Donkey Kong'),
-(9, 5, 52, 'Peachette', 'New Super Mario Bros. U Deluxe'),
-(10, 2, 53, 'Goomba', 'Super Mario Bros.'),
-(10, 3, 54, 'Nabbit', 'New Super Mario Bros. U'),
-(10, 3, 55, 'Stingby', 'Super Mario 3D Land'),
-(10, 1, 56, 'Para-Biddybud', 'Super Mario 3D Land'),
-(10, 6, 57, 'Cataquack', 'Super Mario Sunshine'),
-(10, 2, 58, 'Peepa', 'Super Mario 3D Land'),
-(10, 4, 59, 'Dolphin', 'Super Mario World'),
-(10, 6, 60, 'Piranha Plant', 'Super Mario Bros.'),
-(10, 5, 61, 'Penguin', 'Super Mario 64'),
-(10, 5, 62, 'Pokey', 'Super Mario Bros. 2'),
-(10, 7, 63, 'Pianta', 'Super Mario Sunshine'),
-(10, 1, 64, 'Swoop', 'Super Mario World'),
-(10, 7, 65, "Chargin' Chuck", 'Super Mario World'),
-(10, 2, 66, 'Sidestepper', 'Mario Bros.'),
-(10, 2, 67, 'Cheep Cheep', 'Super Mario Bros.'),
-(10, 6, 68, 'Snowman', 'Super Mario 64'),
-(10, 5, 69, 'Rocky Wrench', 'Super Mario Bros.3'),
-(10, 2, 70, 'Fish Bone', 'Super Mario World'),
-(10, 5, 71, 'Hammer Bro', 'Super Mario Bros.'),
-(10, 3, 72, 'Monty Mole', 'Super Mario World'),
-(10, 7, 73, 'Cow', 'Mario Kart 64'),
-(10, 2, 74, 'Spike', 'Super Mario Bros. 3'),
-(10, 6, 75, 'Conkdor', 'Super Mario 3D World'),
-(10, 4, 76, 'Coin Coffer', 'Super Mario 3D Land');
-
 create table Peso(
 idPeso int primary key,
 Categoria varchar(45));
@@ -344,14 +283,111 @@ insert into Peso values
 (7, 'Heavy'),
 (8, 'Very Heavy');
 
-create table Vendas(
+create table Pilotos(
 ceTitulos int,
-idVendas int,
-Console varchar(45) not null,
-VendasConsole int not null,
-VendasJogo int not null,
-primary key (ceTitulos, idVendas),
-foreign key (ceTitulos) references Títulos(idTitulos));
+cePeso int,
+idPilotos int,
+Nome varchar(45) not null,
+GameOrigem varchar(45),
+primary key (ceTitulos, cePeso, idPilotos),
+foreign key (ceTitulos) references Títulos(idTitulos),
+foreign key (cePeso) references Peso(idPeso));
+
+insert into Pilotos values
+(1, 5, 1, 'Mario', 'Donkey Kong'),
+(1, 5, 2, 'Luigi', 'Mario Bros.'),
+(1, 4, 1, 'Peach', 'Super Mario Bros.'),
+(1, 3, 1, 'Toad', 'Super Mario Bros.'),
+(1, 4, 2, 'Yoshi', 'Super Mario World'),
+(1, 3, 2, 'Koopa Troopa', 'Super Mario Bros.'),
+(1, 7, 1, 'Donkey Kong Jr.', 'Donkey Kong Jr.'),
+(1, 8, 1, 'Bowser', 'Super Mario Bros.'),
+(2, 7, 1, 'Donkey Kong', 'Donkey Kong'),
+(2, 7, 2, 'Wario', 'Super Mario Land 2: 6 Golden Coins'),
+(4, 5, 1, 'Birdo', 'Super Mario Bros. 2'),
+(4, 4, 1, 'Daisy', 'Super Mario Land'),
+(4, 3, 1, 'Toadette', 'Mario Kart: Double Dash!!'),
+(4, 2, 1, 'Baby Mario', "Super Mario World 2: Yoshi's Island"),
+(4, 2, 2, 'Baby Luigi', "Super Mario World 2: Yoshi's Island"),
+(4, 3, 2, 'Koopa Paratroopa', 'Super Mario Bros.'),
+(4, 5, 2, 'Diddy Kong', 'Donkey Kong Country'),
+(4, 5, 3, 'Bowser Jr.', 'Super Mario Sunshine'),
+(4, 7, 1, 'Waluigi', 'Mario Tennis'),
+(4, 6, 1, 'King Boo', "Luigi's Mansion"),
+(4, 7, 2, 'Petey Piranha', 'Super Mario Sunshine'),
+(5, 2, 1, 'Dry Bones', 'Super Mario Bros. 3'),
+(5, 7, 1, 'R.O.B.', 'Gyromite'),
+(5, 3, 1, 'Shy Guy', 'Super Mario Bros. 2'),
+(6, 1, 1, 'Baby Peach', 'Mario & Luigi: Partners in Time'),
+(6, 1, 2, 'Baby Daisy', 'Mario Kart Wii'),
+(6, 6, 1, 'Rosalina', 'Super Mario Galaxy'),
+(6, 7, 1, 'Dry Bowser', 'New Super Mario Bros.'),
+(6, 7, 2, 'Funky Kong', 'Donkey Kong Country'),
+(6, 5, 1, 'Mii', null),
+(7, 7, 1, 'Metal Mario', 'Super Mario 64'),
+(7, 7, 2, 'Honey Queen', 'Super Mario Galaxy'),
+(7, 7, 3, 'Wiggler', 'Super Mario World'),
+(7, 3, 1, 'Lakitu', 'Super Mario Bros.'),
+(8, 2, 1, 'Baby Rosalina', 'Mario Kart 8'),
+(8, 7, 1, 'Pink Gold Peach', 'Mario Kart 8'),
+(8, 3, 1, 'Lemmy', 'Super Mario Bros. 3'),
+(8, 3, 2, 'Larry', 'Super Mario Bros. 3'),
+(8, 3, 3, 'Wendy', 'Super Mario Bros. 3'),
+(8, 5, 1, 'Iggy', 'Super Mario Bros. 3'),
+(8, 5, 2, 'Ludwig', 'Super Mario Bros. 3'),
+(8, 7, 2, 'Morton', 'Super Mario Bros. 3'),
+(8, 7, 3, 'Roy', 'Super Mario Bros. 3'),
+(8, 7, 4, 'Link', 'The Legend of Zelda'),
+(8, 5, 3, 'Villager', 'Animal Crossing'),
+(8, 3, 4, 'Isabelle', 'Animal Crossing: New Leaf'),
+(8, 5, 4, 'Tanooki Mario', 'Super Mario Bros. 3'),
+(8, 5, 5, 'Cat Peach', 'Super Mario 3D World'),
+(9, 5, 1, 'Inkling', 'Splatoon'),
+(10, 7, 1, 'Pauline', 'Donkey Kong'),
+(10, 3, 1, 'Nabbit', 'New Super Mario Bros. U'),
+(10, 5, 1, 'Hammer Bro', 'Super Mario Bros.'),
+(10, 5, 2, 'Boomerang Bro', 'Super Mario Bros. 3'),
+(10, 5, 3, 'Peachette', 'New Super Mario Bros. U Deluxe'),
+(10, 5, 4, 'Kamek', "Super Mario World 2: Yoshi's Island"),
+(10, 5, 5, 'Fire Bro', 'Super Mario Bros. 3'),
+(10, 5, 6, 'Ice Bro', 'New Super Mario Bros. Wii'),
+(10, 5, 7, 'Monty Mole', 'Super Mario World'),
+(10, 5, 8, 'Dixie Kong', "Donkey Kong Country 2: Diddy's Kong Quest"),
+(10, 3, 2, 'Captain Toad', 'Super Mario 3D World'),
+(10, 7, 2, 'King Bob-omb', 'Super Mario 64'),
+(10, 3, 3, 'Poochy', "Super Mario World 2: Yoshi's Island"),
+(10, 7, 3, "Chargin' Chuck", 'Super Mario World'),
+(11, 2, 1, 'Goomba', 'Super Mario Bros.'),
+(11, 3, 1, 'Stingby', 'Super Mario 3D Land'),
+(11, 1, 1, 'Para-Biddybud', 'Super Mario 3D Land'),
+(11, 6, 1, 'Cataquack', 'Super Mario Sunshine'),
+(11, 2, 2, 'Peepa', 'Super Mario 3D Land'),
+(11, 4, 1, 'Dolphin', 'Super Mario World'),
+(11, 6, 2, 'Piranha Plant', 'Super Mario Bros.'),
+(11, 5, 1, 'Penguin', 'Super Mario 64'),
+(11, 5, 2, 'Pokey', 'Super Mario Bros. 2'),
+(11, 7, 1, 'Pianta', 'Super Mario Sunshine'),
+(11, 1, 2, 'Swoop', 'Super Mario World'),
+(11, 2, 3, 'Sidestepper', 'Mario Bros.'),
+(11, 2, 4, 'Cheep Cheep', 'Super Mario Bros.'),
+(11, 6, 3, 'Snowman', 'Super Mario 64'),
+(11, 5, 3, 'Rocky Wrench', 'Super Mario Bros.3'),
+(11, 2, 5, 'Fish Bone', 'Super Mario World'),
+(11, 3, 2, 'Monty Mole', 'Super Mario World'),
+(11, 7, 2, 'Cow', 'Mario Kart 64'),
+(11, 2, 6, 'Spike', 'Super Mario Bros. 3'),
+(11, 6, 4, 'Conkdor', 'Super Mario 3D World'),
+(11, 4, 2, 'Coin Coffer', 'Super Mario 3D Land');
+
+create table Tipos(
+idTipos int primary key,
+Classificação varchar(45));
+
+insert into Tipos values
+(1, 'Kart'),
+(2, 'Moto'),
+(3, 'ATV'),
+(4, 'Outros');
 
 create table Veículos(
 ceTitulos int,
@@ -600,14 +636,14 @@ insert into Veículos values
 (11, 3, 5, 'Rallygator'),
 (11, 3, 6, 'Bowser Bruiser');
 
-create table Tipos(
-idTipos int primary key,
-Classificação varchar(45));
+create table Utilidade(
+idUtilidade int primary key,
+Característica varchar(45));
 
-insert into Tipos values
-(1, 'Kart'),
-(2, 'Moto'),
-(3, 'ATV'),
+insert into Utilidade values
+(1, 'Defesa'),
+(2, 'Ataque'),
+(3, 'Velocidade'),
 (4, 'Outros');
 
 create table Itens(
@@ -801,14 +837,23 @@ insert into Itens values
 (11, 4, 5, 'Feather'),
 (11, 4, 6, 'Kamek');
 
-create table Utilidade(
-idUtilidade int primary key,
-Característica varchar(45));
+create table Vendas(
+ceTitulos int,
+idVendas int,
+Console varchar(45) not null,
+VendasConsole int not null,
+VendasJogo int not null,
+primary key (ceTitulos, idVendas),
+foreign key (ceTitulos) references Títulos(idTitulos));
 
-insert into Utilidade values
-(1, 'Defesa'),
-(2, 'Ataque'),
-(3, 'Velocidade'),
-(4, 'Outros');
+select * from Pistas;
+select * from Títulos;
 
-
+select ps.nome as 'Piloto', pt.nome as 'Pista', i.nome as 'Item', NomeJogo as 'Game'
+from Pistas ps join Títulos
+on ceTitulos = idTitulos
+join Itens i
+on i.ceTitulos = idTitulos
+join Pilotos pt
+on pt.ceTitulos = idTitulos
+where ps.nome = 'Rainbow Road' and pt.nome = 'Yoshi' and i.nome = 'Green Shell' and NomeJogo = 'Mario Kart 64';
