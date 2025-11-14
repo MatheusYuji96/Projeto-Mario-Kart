@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>Projeto Mario Kart | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -19,13 +19,13 @@
   <!--header inicio-->
   <div class="header">
     <div class="container">
-      <h1 class="titulo">AquaTech</h1>
+      <h1 class="titulo">Projeto Mario Kart</h1>
       <ul class="navbar">
         <li>
           <a href="index.html">Inicial</a>
         </li>
         <li>
-          <a href="simulador.html">Simulador</a>
+          <a href="simulador.html">Dados dos Jogos</a>
         </li>
         <li>|</li>
         <li>
@@ -54,27 +54,45 @@
                          Assim que inserir vá para o script abaixo.
                      -->
           <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
+            <span>Nome:</span>
+            <input id="iptNome" type="text" placeholder="Seu nome" />
           </div>
           <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
+            <span>CPF:</span>
+            <input id="iptCpf" type="text" placeholder="000000000-00" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div><div class="campo">
-            <span>CPF:</span>
-            <input id="cpf_input" type="text" placeholder="000000000-00" />
+            <input id="iptEmail" type="text" placeholder="email@provedor.com" />
+          </div>
+          <div class="campo">
+            <span>Data de Nascimento</span>
+            <input id="iptDataNasc" type="date" placeholder="00/00/0000" />
           </div>
           <div class="campo">
             <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
+            <input id="iptSenha" type="password" placeholder="******" />
           </div>
           <div class="campo">
             <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
+            <input id="iptConfSenha" type="password" placeholder="******" />
+          </div>
+          <div class="campo">
+            <span>Escolha um Jogo:</span>
+            <select id="sltJogos">
+              <option value="#">Selecione</option>
+              <option value="">Super Mario Kart</option>
+              <option value="2">Mario Kart 64</option>
+              <option value="3">Mario Kart: Super Circuit</option>
+              <option value="4">Mario Kart: Double Dash!!</option>
+              <option value="5">Mario Kart DS</option>
+              <option value="6">Mario Kart Wii</option>
+              <option value="7">Mario Kart 7</option>
+              <option value="8">Mario Kart 8</option>
+              <option value="9">Mario Kart 8 Deluxe</option>
+              <option value="10">Maro Kart Tour</option>
+              <option value="11">Mario Kart World</option>
+            </select>
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
@@ -102,20 +120,20 @@
 <script>
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  let listaTitulos = [];
 
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var cpfVar = cpf_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var nomeVar = iptNome.value;
+    var emailVar = iptEmail.value;
+    var cpfVar = iptCpf.value;
+    var dataNascVar = iptDataNasc.value;
+    var senhaVar = iptSenha.value;
+    var confirmacaoSenhaVar = iptConfSenha.value;
+    var idJogoVincular = sltJogos.value;
 
     
     // Verificando se há algum campo em branco
@@ -123,9 +141,10 @@
       nomeVar == "" ||
       emailVar == "" ||
       cpfVar == "" ||
+      dataNascVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      idJogoVincular == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -146,7 +165,7 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
-    if (emailVar  ){
+    if (!emailVar.includes('@') || !emailVar.includes('.')){
         cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Email deve conter '@' e '.')";
@@ -186,11 +205,11 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
-    
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
+
+       // Verificando se o código de ativação é de alguma empresa cadastrada
+    for (let i = 0; i < listaTitulos.length; i++) {
+      if (listaTitulos[i].codigo_ativacao == codigoVar) {
+        idJogoVincular = listaTitulos[i].id
         console.log("Código de ativação válido.");
         break;
       } else {
@@ -210,10 +229,11 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
         cpfServer: cpfVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        emailServer: emailVar,
+        dataNascServer: dataNascVar,
+        senhaServer: senhaVar,
+        idJogoVincularServer: idJogoVincular
       }),
     })
       .then(function (resposta) {
@@ -245,16 +265,15 @@
 
   // Listando empresas cadastradas 
   function listar() {
-    fetch("/empresas/listar", {
+    fetch("/Títulos/listar", {
       method: "GET",
     })
       .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
+        resposta.json().then((Títulos) => {
+          Títulos.forEach((Títulos) => {
+            listaTítulos.push(Títulos);
 
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+            console.log("listaTítulos")
           });
         });
       })
