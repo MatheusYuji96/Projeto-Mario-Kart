@@ -81,7 +81,7 @@
             <span>Escolha um Jogo:</span>
             <select id="sltJogos">
               <option value="#">Selecione</option>
-              <option value="">Super Mario Kart</option>
+              <option value="1">Super Mario Kart</option>
               <option value="2">Mario Kart 64</option>
               <option value="3">Mario Kart: Super Circuit</option>
               <option value="4">Mario Kart: Double Dash!!</option>
@@ -133,7 +133,8 @@
     var dataNascVar = iptDataNasc.value;
     var senhaVar = iptSenha.value;
     var confirmacaoSenhaVar = iptConfSenha.value;
-    var idJogoVincular = sltJogos.value;
+    var ceTitulosVar = sltJogos.value;
+    var idJogoVincular
 
     
     // Verificando se há algum campo em branco
@@ -144,7 +145,7 @@
       dataNascVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      idJogoVincular == ""
+      ceTitulosVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -205,10 +206,20 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
+    if (ceTitulosVar == '#'){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Escolha um jogo dentre as opções)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
 
        // Verificando se o código de ativação é de alguma empresa cadastrada
     for (let i = 0; i < listaTitulos.length; i++) {
-      if (listaTitulos[i].codigo_ativacao == codigoVar) {
+      if (listaTitulos[i].codigo_ativacao == ceTitulosVar) {
         idJogoVincular = listaTitulos[i].id
         console.log("Código de ativação válido.");
         break;
@@ -233,7 +244,8 @@
         emailServer: emailVar,
         dataNascServer: dataNascVar,
         senhaServer: senhaVar,
-        idJogoVincularServer: idJogoVincular
+        ceTitulosServer: ceTitulosVar,
+        idJogoVincularSevrer: idJogoVincular
       }),
     })
       .then(function (resposta) {
@@ -271,9 +283,9 @@
       .then(function (resposta) {
         resposta.json().then((Títulos) => {
           Títulos.forEach((Títulos) => {
-            listaTítulos.push(Títulos);
+            listaTitulos.push(Títulos);
 
-            console.log("listaTítulos")
+            console.log("listaTitulos")
           });
         });
       })

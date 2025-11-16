@@ -76,7 +76,7 @@ body {
 }
 
 .banner .container p {
-  width: 32%;
+  width: 40%;
   margin: 0;
   padding: 0;
   font-size: 50px;
@@ -88,11 +88,26 @@ body {
   color: orange;
 }
 
+#projeto {
+  color: lightblue;
+}
+
+#mario1 {
+  color: limegreen;
+}
+
+#kart1 {
+  color: orange;
+}
+
 /* Linha do Tempo */
 
 .social {
-  background-color: #e5e5e5;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8DRR.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
+  color: white;
 }
 
 .social .container {
@@ -102,8 +117,17 @@ body {
   flex-direction: column;
 }
 
-.box img {
-  width: 200px;
+#mario2 {
+color: yellow;
+}
+
+#kart2 {
+color: red;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
 }
 
 .title {
@@ -120,14 +144,20 @@ body {
   justify-content: center;
   padding: 10px;
   padding: 0 30px 00 30px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+}
+
+#video1{
+  max-width: 40%;
+  justify-content: center;
+  align-items: center;
 }
 
 .social .container .boxes {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 100vw;
+  width: 95vw;
   padding: 30px 0;
 }
 
@@ -142,9 +172,47 @@ body {
   align-items: center;
 }
 
+.merchands{
+  justify-content: center;
+  align-items: center;
+}
+
+#brinquedo1 img{
+  width: 250px;
+}
+
+#brinquedo2 img{
+  width: 350px;
+}
+
+#brinquedo3 img{
+  width: 350px;
+}
+
+.box img{
+  width: 200px;
+}
+
+.title img {
+  width: 400px;
+}
+
+.box span{
+  color: yellow;
+}
+
+#fotoModo1 img {
+  width: 40vw;
+}
+
+#fotoModo2 img {
+  width: 40vw;
+}
+
 /* FOOTER */
 
 .footer {
+  height: var(--tamanho-footer);
   background-color: #32b9cd;
   height: 150px;
   color: #fff;
@@ -330,11 +398,15 @@ input {
 
 .simulador {
   color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWart.avif');
+  background-size: cover;
+  background-position: center;
+  height: 225vh;
 }
 
 .simulador .container {
-  flex-direction: column;
   height: var(--tamanho-simulador);
+  flex-direction: column;
 }
 
 .simulador .container .jogo{
@@ -344,18 +416,21 @@ input {
   width: 100%;
 }
 
+.container h1{
+  font-size: 2.5rem;
+}
+
 .jogo img{
   margin-top: 20px;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 200px;
 }
 
 .jogo span, p{
   justify-content: center;
   align-items: flex-end;
   flex-wrap: wrap;
-
 }
 
 .game {
@@ -369,16 +444,19 @@ input {
 
 .dados{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  padding: 10px;
-  padding: 0 30px 00 30px;
+  padding: 0 30px 0 30px;
   font-size: 1.2rem;
 }
 
 .dados span{
   font-weight: bold;
+}
+
+.dados p {
+  padding: 0 30px 0 0;
 }
 
 #SMK{

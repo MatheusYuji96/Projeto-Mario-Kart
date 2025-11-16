@@ -102,7 +102,7 @@ insert into Pistas values
 (2, 1, 2, 'Moo Moo Farm', 'Fazenda', 'Voltas'),
 (2, 1, 3, 'Koopa Troopa Beach', 'Praia', 'Voltas'),
 (2, 1, 4, 'Kalimari Desert', 'Deserto', 'Voltas'),
-(2, 2, 1, "Toad'S Turnpike", null, 'Voltas'),
+(2, 2, 1, "Toad's Turnpike", null, 'Voltas'),
 (2, 2, 2, 'Frappe Snowland', 'Neve', 'Voltas'),
 (2, 2, 3, 'Choco Mountain', null, 'Voltas'),
 (2, 2, 4, 'Mario Raceway', 'Circuito', 'Voltas'),
@@ -269,10 +269,23 @@ insert into Pistas values
 (11, 4, 3, 'Peach Stadium', 'Estádio', 'Voltas'),
 (11, 4, 4, "Rainbow Road", 'Espacial', 'Voltas');
 
+create table Vendas(
+idVendas int,
+Console varchar(45),
+VendasConsole int not null,
+VendasJogo int not null,
+ceTitulos int,
+primary key (ceTitulos, idVendas),
+foreign key (ceTitulos) references Títulos(idTitulos));
+
+insert into vendas values
+(5, 1, 'Nintendo DS', 54222000, 23800000);
+
 select * from Pistas;
 select * from Títulos;
 
-select pistas.* as 'Pistas', NomeJogo as 'Game'
-from Pistas join Títulos
-on ceTitulos = idTitulos
+select p.nome as Pistas, c.nome as Copa, NomeJogo as 'Game'
+from Pistas p join Títulos
+on p.ceTitulos = idTitulos
+join Copa c on p.ceCopa = idCopa
 where NomeJogo = 'Mario Kart 64';

@@ -30,7 +30,7 @@ function cadastrar(req, res) {
     if (resultado.length > 0) {
       res
         .status(401)
-        .json({ mensagem: `a pessoa com o cpf ${cpf} já eestá cadastrada` });
+        .json({ mensagem: `a pessoa com o cpf ${cpf} já está cadastrada` });
     } else {
       empresaModel.cadastrar(nome, cpf).then((resultado) => {
         res.status(201).json(resultado);

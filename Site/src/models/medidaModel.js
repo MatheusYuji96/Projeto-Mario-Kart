@@ -9,7 +9,7 @@ function buscarDadosVendas(ceTitulos, idVendas, Console, VendasConsole, VendasJo
         VendasConsole as 'Vendas de Consoles',
         VendasJogo as 'Vendas do Software'
                     FROM Titulos JOIN Vendas
-                    ON ceTitulos = ${idTitulos}
+                    ON idTitulos = ${ceTitulos}
                     ORDER BY VendasJogo DESC`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
