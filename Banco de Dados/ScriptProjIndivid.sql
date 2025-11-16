@@ -272,15 +272,15 @@ insert into Pistas values
 create table Vendas(
 idVendas int,
 Console varchar(45),
-VendasConsole int not null,
+VendasConsole int,
 VendasJogo int not null,
-ceTitulos int,
+ce int,
 primary key (ceTitulos, idVendas),
 foreign key (ceTitulos) references Títulos(idTitulos));
-
+drop table vendas;
 insert into vendas values
-(5, 1, 'Nintendo DS', 54222000, 23800000);
-
+(1, 'Super Nintendo Entertainment System', 20222000, 8760000, 1);
+use Mario_Kart;
 select * from Pistas;
 select * from Títulos;
 

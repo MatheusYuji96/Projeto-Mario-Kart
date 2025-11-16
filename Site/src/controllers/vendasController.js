@@ -1,9 +1,9 @@
 var vendasModel = require("../models/vendasModel");
 
 function buscarVendasPorTitulos(req, res) {
-  var ceTitulos = req.params.ceTitulos;
+  var idUsuario = req.params.idUsuario;
 
-  vendasModel.buscarVendasPorTitulos(ceTitulos).then((resultado) => {
+  vendasModel.buscarVendasPorTitulos(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -19,16 +19,16 @@ function buscarVendasPorTitulos(req, res) {
 
 function cadastrar(req, res) {
   var vendasJogo = req.body.vendasJogo;
-  var ceTitulos = req.body.ceTitulos;
+  var idUsuario = req.body.idUsuario;
 
   if (vendasJogo == undefined) {
     res.status(400).send("vendasJogo está undefined!");
-  } else if (ceTitulos == undefined) {
+  } else if (idUsuario == undefined) {
     res.status(400).send("ceTitulos está undefined!");
   } else {
 
 
-    vendasModel.cadastrar(vendasJogo, ceTitulos)
+    vendasModel.cadastrar(vendasJogo, idUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       }

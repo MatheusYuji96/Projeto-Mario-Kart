@@ -126,7 +126,8 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.TÍTULO_USUARIO = json.ceTitulos;
+                    sessionStorage.TÍTULO_USUARIO = json.idUsuario;
+                    sessionStorage.Vendas = JSON.stringify(json.vendas)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
