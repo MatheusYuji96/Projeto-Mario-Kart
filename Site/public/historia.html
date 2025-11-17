@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projeto Mario Kart | História</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="./assets/icon/favicon2.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+
+    <!--header inicio-->
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">Projeto Mario Kart</h1>
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html">Inicial</a>
+                </li>
+                <li class="agora">Dados dos Jogos</li>
+                <li>
+                    <a href="simulador.html">Simulador</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="./login.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- simulador inicio -->
+    <div class="historia">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+            <div class="container">
+                <h1>História</h1>
+                <h3>Escolha um Jogo:</h3>
+                <div id="opcoes">
+                    <select style="display: block" id="sltHistoria" onclick="escolher()">
+                        <option value="#">Selecione</option>
+                        <option value="1">Super Mario Kart</option>
+                        <option value="2">Mario Kart 64</option>
+                        <option value="3">Mario Kart: Super Circuit</option>
+                        <option value="4">Mario Kart: Double Dash!!</option>
+                        <option value="5">Mario Kart DS</option>
+                        <option value="6">Mario Kart Wii</option>
+                        <option value="7">Mario Kart 7</option>
+                        <option value="8">Mario Kart 8</option>
+                        <option value="9">Mario Kart 8 Deluxe</option>
+                        <option value="10">Maro Kart Tour</option>
+                        <option value="11">Mario Kart World</option>
+                    </select>
+                </div><br><br>
+                <div class="jogo" style="display: none" id="SMK">
+                    <div class="game">
+                        <img src="assets/imgs/SMKcapa.jpg" id="imgSMK" alt="">
+                        <h4>Super Mario Kart - 1992</h4>
+                    </div>
+                    <div class="dados">
+                        <p>O primeiro jogo da série foi lançado em Agosto de 1992 e trouxe os personagens do Reino do
+                            Cogumelo
+                            para corridas frenéticas e cheias de reviravoltas</p><br>
+                        <span>Plataforma:</span>
+                        <p>Super Nintendo Entertainment System</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>27 de Agosto de 1992</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>2</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Toad, Yoshi, Koopa Troopa, Donkey Kong Jr., Bowser</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>20</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MK64">
+                    <div class="game">
+                        <img src="assets/imgs/MK64capa.jpg" alt="">
+                        <h4>Mario Kart 64 - 1996</h4>
+                    </div>
+                    <div class="dados">
+                        <p>O segundo jogo da franquia se destaca por ser o primeiro jogo com gráficos em 3D da série,
+                            além de permitir que até quatro pessoas joguem simultaneamente na mesma tela</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo 64</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>14 de Dezembro de 1996</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>4</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Toad, Yoshi, Wario, Donkey Kong, Bowser</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>16</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MKSC">
+                    <div class="game">
+                        <img src="assets/imgs/MKSCcapa.jpg" alt="">
+                        <h4>Mario Kart: Super Circuit - 2001</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Super Circuit foi o primeiro Mario Kart desenvolvido para console portáteis (Game Boy
+                            Advance), além de ser o primeiro a contar com pistas vindas de outro jogo (Super Mario Kart)
+                        </p>
+                        <span>Plataforma:</span>
+                        <p>Game Boy Advance</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>21 de Julho de 2001</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>1</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Toad, Yoshi, Wario, Donkey Kong, Bowser</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>20</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MKDD">
+                    <div class="game">
+                        <img src="assets/imgs/MKDDcapa.jpg" alt="">
+                        <h4>Mario Kart: Double Dash!! - 2003</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Corridas em duplas são o grande destaque do Double Dash, desenvolvido para Nintendo GameCube,
+                            que também
+                            trouxe o conceito de itens exclusivos dos pilotos</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo GameCube</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>07 de Novembro de 2003</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>4</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Toadette, Yoshi, Birdo, Baby Mario, Baby Luigi, Koopa
+                            Troopa, Koopa Paratroopa, Donkey Kong, Diddy Kong, Bowser, Bowser Jr., Wario, Waluigi, Boo,
+                            Petey Piranha</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>16</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MKDS">
+                    <div class="game">
+                        <img src="assets/imgs/MKDScapa.jpg" alt="">
+                        <h4>Mario Kart DS - 2005</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Mario Kart DS permitiu, pela primeira vez, que jogadores do mundo todo pudessem se enfrentar,
+                            via conexão
+                            online. Além disso, o modo Missões trouxe uma nova e divertida mecânica </p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo DS</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>14 de Novembro de 2005</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>1</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Yoshi, Koopa Troopa, Dry Bones, Shy Guy, R.O.B., Wario,
+                            Waluigi, Donkey Kong, Bowser</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>32</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MKWii">
+                    <div class="game">
+                        <img src="assets/imgs/MKWiicapa.jpg" alt="">
+                        <h4>Mario Kart Wii - 2008</h4>
+                    </div>
+                    <div class="dados">
+                        <p>12 pilotos, karts e, pela primeira vez, motos, fazem parte de Mario Kart Wii, que também traz
+                            o uso dos
+                            controles por movimento do console de mesmo nome</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo Wii</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>10 de Abril de 2008</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>4</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Toadette, Yoshi, Birdo, Baby Mario, Baby Luigi, Baby Peach,
+                            Baby Daisy, Dry Bones, Koopa Troopa, Wario, Waluigi, Donkey Kong, Rosalina, Bowser Jr.,
+                            Bowser, Funky Kong, King Boo, Diddy Kong, Mii</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>32</p><br>
+                        <span>Quantidad de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MK7">
+                    <div class="game">
+                        <img src="assets/imgs/MK7capa.jpg" alt="">
+                        <h4>Mario Kart 7 - 2011</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Corridas embaixo d'água e nos ares são as grandes novidades de Mario Kart 7, para Nintendo
+                            3DS, que ainda
+                            conta com a customização dos veículos e efeitos 3D como outros chamarizes</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo 3DS</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>21 de Maio de 2012</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>1</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Yoshi, Koopa Troopa, Wario, Donkey Kong, Bowser, Honey
+                            Queen, Lakitu, Wiggler, Mii, Shy Guy, Rosalina</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>32</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MK8">
+                    <div class="game">
+                        <img src="assets/imgs/MK8capa.jpg" alt="">
+                        <h4>Mario Kart 8 - 2014</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Mario Kart 8, para Nintendo Wii U, traz as corridas antigravitacionais como a sua maior
+                            novidade. Além
+                            disso, pela primeira vez na franquia, personagens de séries externas, como Link, de The
+                            Legend of Zelda,
+                            fazem uma aparição em Mario Kart</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo Wii U</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>29 de Maio de 2014</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>4</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Toadette, Yoshi, Koopa Troopa, Donkey Kong, Bowser, Larry,
+                            Iggy, Lemmy, Wendy, Morton, Roy, Ludwig, Bowser Jr., King Boo, Tanooki Mario, Cat Peach, Shy
+                            Guy, Villager, Isabelle, Dry Bowser, Mii, Link, Metal Mario, Lakitu, Baby Rosalina, Baby
+                            Mario, Baby Luigi, Baby Peach, Baby Daisy, Pink Gold Peach, Wario, Waluigi</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>48</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MK8D">
+                    <div class="game">
+                        <img src="assets/imgs/MK8Dcapa.jpg" alt="">
+                        <h4>Mario Kart 8 Deluxe - 2017</h4>
+                    </div>
+                    <div class="dados">
+                        <p>A versão Deluxe, para Nintendo Switch, expande o conteúdo original, com mais personagens,
+                            modo Batalha
+                            renovado e uma expansão paga (Booster Course Pass) que aumenta para 96 o número total de
+                            circuitos</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo Switch</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>28 de Abril de 2017</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>4</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Rosalina, Tanooki Mario, Cat Peach, Shy Guy, Toad, Yoshi, Koopa
+                            Troopa, Donkey Kong, Toadette, King Boo, Baby Mario, Baby Luig, Baby Peach, Baby Daisy,
+                            Metal Mario, Pink Gold Peach, Wario, Waluigi, Dry Bones, Bowser Jr., Dry Bowser, Bowser,
+                            Lemmy, Larry, Iggy, Wendy, Ludwig, Roy, Morton, Inkling, Villager, Isabelle, Link, Diddy
+                            Kong, Funky Kong, Pauline, Peachette, Kamek, Wiggler, Petey Piranha, Birdo, Mii</p><br>
+                        <span>Número de Pistas:</span>
+                        <p>96</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MKT">
+                    <div class="game">
+                        <img src="assets/imgs/MKTcapa.png" alt="">
+                        <h4>Mario Kart Tour - 2019</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Mario Kart Tour marca a entrada da série nos dispositovos celulares, trazendo um formato que
+                            alia as
+                            corridas frenéticas já conhecidas a um sistema baseado em pontos e rankings semanais</p>
+                        <span>Plataforma:</span>
+                        <p>iOS/Android</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>25 de Setembro de 2019</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>1</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Toadette, Yoshi, Birdo, Koopa Troopa, Donkey Kong, Donkey
+                            Kong Jr. (8-bits), Bowser, Dry Bowser, Bowser Jr., Baby Mario, Baby Luigi, Baby Peach, Baby
+                            Daisy, Baby Rosalina, Shy Guy, Dry Bones, Larry, Lemmy, Iggy, Roy, Morton, Ludwig, Wendy,
+                            Rosalina, Diddy Kong, Lakitu, Wario, Waluigi, King Boo, Hammer Bro, Ice Bro, Fire Bro,
+                            Boomerang Bro, Monty Mole, Metal Mario, Peachette, Pauline, Pink Gold Peach, Poochy, Funky
+                            Kong, Dixie Kong, Nabbit, King Bob-omb, Kamek, Chargin' Chuck, Petey Piranha, Wiggler, Mii
+                        </p><br>
+                        <span>Número de Pistas:</span>
+                        <p>20</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+                <div class="jogo" style="display: none" id="MKW">
+                    <div class="game">
+                        <img src="assets/imgs/MKWcapa.jpg" alt="">
+                        <h4>Mario Kart World - 2025</h4>
+                    </div>
+                    <div class="dados">
+                        <p>Em Mario Kart World, para Nintendo Switch 2, os jogadores são desafiados a correrem em
+                            circuitos fechados e rotas que estão dentro de um grande mundo aberto, o primeiro dentro de
+                            Mario Kart</p>
+                        <span>Plataforma:</span>
+                        <p>Nintendo Switch 2</p><br>
+                        <span>Data de Lançamento:</span>
+                        <p>05 de Junho de 2025</p><br>
+                        <span>Número de Jogadores:</span>
+                        <p>4</p><br>
+                        <span>Pilotos:</span>
+                        <p>Mario, Luigi, Peach, Daisy, Toad, Yoshi, Koopa Troopa, Donkey Kong, Bowser, Wario, Waluigi,
+                            Rosalina, Pauline, Baby Mario, Baby Luigi, Baby Peach, Baby Daisy, Lakitu, Toadette, Bowser
+                            Jr., Baby Rosalina, Birdo, King Boo, Shy Guy, Nabbit, Piranha Plant, Hammer Bro, Monty Mole,
+                            Goomba, Spike, Sidestepper, Cheep Cheep, Dry Bones, Wiggler, Cataquack, Pianta, Rocky
+                            Wrench, Conkdor, Pokey, Peepa, Swooper, Cow, Stinbgy, Fish Bone, Coin Coffer, Snowman,
+                            Penguin, Dolphin, Para Biddybug, Chargin' Chuck</p><br>
+                        <span>Número de Localidades:</span>
+                        <p>30</p><br>
+                        <span>Quantidade de Veículos:</span>
+                        <p>1</p><br>
+                        <span>Veículos:</span>
+                        <p>Pipe Frame</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- simulador fim -->
+
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="containerFooter">
+            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
+    <!--footer fim-->
+
+
+</body>
+<script>
+    function escolher() {
+        let gameEscolhido = Number(sltHistoria.value);
+        if (gameEscolhido == 1) {
+            SMK.style.display = 'block';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 2) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'block';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 3) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'block';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 4) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'block';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 5) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'block';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 6) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'block';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 7) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'block';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 8) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'block';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 9) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'block';
+            MKT.style.display = 'none';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 10) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'block';
+            MKW.style.display = 'none';
+        } else if (gameEscolhido == 11) {
+            SMK.style.display = 'none';
+            MK64.style.display = 'none';
+            MKSC.style.display = 'none';
+            MKDD.style.display = 'none';
+            MKDS.style.display = 'none';
+            MKWii.style.display = 'none';
+            MK7.style.display = 'none';
+            MK8.style.display = 'none';
+            MK8D.style.display = 'none';
+            MKT.style.display = 'none';
+            MKW.style.display = 'block';
+        }
+    }
+</script>
+
+</html>

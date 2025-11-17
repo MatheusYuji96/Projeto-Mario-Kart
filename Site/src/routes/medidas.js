@@ -4,7 +4,7 @@ var router = express.Router();
 var medidaController = require("../controllers/medidaController");
 
 router.get("/ultimas/:idTitulos", function (req, res) {
-    medidaController.buscarDadosVendas(req, res);
+    medidaController.buscarUltimasMedidas(req, res);
 });
 
 router.get("/tempo-real/:idTitulos", function (req, res) {
@@ -12,3 +12,5 @@ router.get("/tempo-real/:idTitulos", function (req, res) {
 })
 
 module.exports = router;
+/*as medidas tem a ver com os aquarios
+as vendas tem a ver com os titulos*/

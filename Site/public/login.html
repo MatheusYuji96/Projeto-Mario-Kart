@@ -27,7 +27,10 @@
                     <a href="index.html">Inicial</a>
                 </li>
                 <li>
-                    <a href="simulador.html">Dados dos Jogos</a>
+                    <a href="historia.html">Dados dos Jogos</a>
+                </li>
+                <li>
+                    <a href="simulador.html">Simulador</a>
                 </li>
                 <li>|</li>
                 <li class="agora">
@@ -126,8 +129,8 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.TÍTULO_USUARIO = json.idUsuario;
-                    sessionStorage.Vendas = JSON.stringify(json.vendas)
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.Titulo = JSON.stringify(json.Titulo)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

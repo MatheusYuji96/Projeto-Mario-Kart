@@ -42,7 +42,7 @@ body {
 }
 
 .navbar {
-  width: 300px;
+  width: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -396,6 +396,137 @@ input {
 
 /* História */
 
+.historia {
+  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWart.avif');
+  background-size: cover;
+  background-position: center;
+  height: 225vh;
+}
+
+.historia .container {
+  height: var(--tamanho-simulador);
+  flex-direction: column;
+}
+
+.historia .container .jogo{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container h1{
+  font-size: 2.5rem;
+}
+
+.jogo img{
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+
+.jogo span, p{
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 30px 0 30px;
+  font-size: 1.4rem;
+}
+
+.dados{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 30px 0 30px;
+  font-size: 1.2rem;
+}
+
+.dados span{
+  font-weight: bold;
+}
+
+.dados p {
+  padding: 0 30px 0 0;
+}
+
+#SMK{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/SMKfundo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#MK64 {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK64fundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+#MKSC {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKSCfundo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#MKDD {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKDDfundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+#MKDS {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKDSfundo.png');
+background-size: cover;
+background-position: center;
+}
+
+#MKWii {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWiifundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+#MK7 {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK7fundo.png');
+background-size: cover;
+background-position: center;
+}
+
+#MK8 {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8fundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+#MK8D {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8Dfundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+#MKT {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKTfundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+#MKW {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWfundo.jpg');
+background-size: cover;
+background-position: center;
+}
+
+/*Simulador*/
+
 .simulador {
   color: white;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWart.avif');
@@ -524,6 +655,7 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('
 background-size: cover;
 background-position: center;
 }
+
 /* ALERTA */
 
 #alerta {

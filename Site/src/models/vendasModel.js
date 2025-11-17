@@ -1,8 +1,8 @@
 var database = require("../database/config");
 
-function buscarVendasPorTitulos(Jogo) {
+function buscarUsuariosPorTitulos(Jogo) {
 
-  var instrucaoSql = `SELECT * FROM Vendas WHERE ceTitulos = ${Jogo}`;
+  var instrucaoSql = `SELECT * FROM Usuarios WHERE ceTitulos = ${Jogo}`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -18,6 +18,6 @@ function cadastrar(Jogo, VendasJogo) {
 
 
 module.exports = {
-  buscarVendasPorTitulos,
+  buscarUsuariosPorTitulos,
   cadastrar
 }

@@ -1,9 +1,9 @@
 var vendasModel = require("../models/vendasModel");
 
-function buscarVendasPorTitulos(req, res) {
-  var idUsuario = req.params.idUsuario;
+function buscarUsuariosPorTitulos(req, res) {
+  var ceTitulos = req.params.ceTitulos;
 
-  vendasModel.buscarVendasPorTitulos(idUsuario).then((resultado) => {
+  vendasModel.buscarUsuariosPorTitulos(ceTitulos).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -19,7 +19,7 @@ function buscarVendasPorTitulos(req, res) {
 
 function cadastrar(req, res) {
   var vendasJogo = req.body.vendasJogo;
-  var idUsuario = req.body.idUsuario;
+  var ceTitulos = req.body.ceTitulos;
 
   if (vendasJogo == undefined) {
     res.status(400).send("vendasJogo está undefined!");
@@ -28,7 +28,7 @@ function cadastrar(req, res) {
   } else {
 
 
-    vendasModel.cadastrar(vendasJogo, idUsuario)
+    vendasModel.cadastrar(vendasJogo, ceTitulos)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -44,6 +44,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarVendasPorTitulos,
+  buscarUsuariosPorTitulos,
   cadastrar
 }

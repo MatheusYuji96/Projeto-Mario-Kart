@@ -12,7 +12,7 @@ ceTitulos int,
 foreign key (ceTitulos)
 references Títulos(idTitulos));
 
-create table Títulos(
+create table Titulos(
 idTitulos int primary key,
 NomeJogo varchar(60) not null unique,
 DataLanc date,
@@ -20,7 +20,7 @@ Console varchar(45) not null,
 Mecanica varchar(100),
 Online tinyint);
 
-insert into Títulos values
+insert into Titulos values
 (1, 'Super Mario Kart', '1992-08-27', 'Super Nintendo Entertainment System', 'Corridas de Kart', 0),
 (2, 'Mario Kart 64', '1996-12-14', 'Nintendo 64', 'Circuitos 3D', 0),
 (3, 'Mario Kart: Super Circuit', '2001-07-21', 'Game Boy Advance', 'Corridas em Console Portátil', 0),
@@ -271,15 +271,16 @@ insert into Pistas values
 
 create table Vendas(
 idVendas int,
-Console varchar(45),
-VendasConsole int,
 VendasJogo int not null,
-ce int,
+ceTitulos int,
 primary key (ceTitulos, idVendas),
-foreign key (ceTitulos) references Títulos(idTitulos));
+foreign key (ceTitulos) references Titulos(idTitulos));
+
+
 drop table vendas;
 insert into vendas values
-(1, 'Super Nintendo Entertainment System', 20222000, 8760000, 1);
+(3, 300000, 1);
+
 use Mario_Kart;
 select * from Pistas;
 select * from Títulos;

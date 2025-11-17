@@ -1,16 +1,12 @@
 var database = require("../database/config");
 
-function buscarDadosVendas(ceTitulos, idVendas, Console, VendasConsole, VendasJogo) {
+function buscarDadosVendas(idTitulos, limite_linhas) {
 
     var instrucaoSql = `SELECT
-        ceTitulos,
-        idVendas,
-        Console, 
-        VendasConsole as 'Vendas de Consoles',
-        VendasJogo as 'Vendas do Software'
-                    FROM Titulos JOIN Vendas
-                    ON idTitulos = ${ceTitulos}
-                    ORDER BY VendasJogo DESC`;
+    VendasJogo as 'Vendas do Software'
+                    FROM Vendas
+                    WHERE ceTitulos = ${idTitulos}
+                    ORDER BY VendasJogo DESC LIMIT ${limite_linhas}`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
