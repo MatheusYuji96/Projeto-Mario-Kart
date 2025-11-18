@@ -77,7 +77,7 @@ function alertar(resposta, idTitulos) {
 }
 
 function exibirAlerta(temp, idTitulos, grauDeAviso, grauDeAvisoCor) {
-    var indice = alertas.findIndex(item => item.idTitulos == idTitulos);
+    var indice = alertas.findIndex(item => item.id == idTitulos);
 
     if (indice >= 0) {
         alertas[indice] = { idTitulos, temp, grauDeAviso, grauDeAvisoCor }
@@ -89,7 +89,7 @@ function exibirAlerta(temp, idTitulos, grauDeAviso, grauDeAvisoCor) {
 }
 
 function removerAlerta(idTitulos) {
-    alertas = alertas.filter(item => item.idTitulos != idTitulos);
+    alertas = alertas.filter(item => item.id != idTitulos);
     exibirCards();
 }
 
@@ -104,7 +104,7 @@ function exibirCards() {
 
 function transformarEmDiv({ idTitulos, temp, grauDeAviso, grauDeAvisoCor }) {
 
-    var descricao = JSON.parse(sessionStorage.Titulos).find(item => item.id == idTitulos).descricao;
+    var descricao = JSON.parse(sessionStorage.Titulo).find(item => item.id == idTitulos).NomeJogo;
     return `
     <div class="mensagem-alarme">
         <div class="informacao">
@@ -118,7 +118,7 @@ function transformarEmDiv({ idTitulos, temp, grauDeAviso, grauDeAvisoCor }) {
 }
 
 function atualizacaoPeriodica() {
-    JSON.parse(sessionStorage.Titulos).forEach(item => {
+    JSON.parse(sessionStorage.Titulo).forEach(item => {
         obterdados(item.id)
     });
     setTimeout(atualizacaoPeriodica, 5000);

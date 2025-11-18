@@ -20,7 +20,7 @@
     <!--header inicio-->
     <div class="header">
         <div class="container">
-            <h1 class="titulo">AquaTech</h1>
+            <h1 class="titulo">Projeto Mario Kart</h1>
             <ul class="navbar">
                 <li>
                     <a href="./index.html">Inicial</a>
@@ -72,11 +72,17 @@
                 </select>
                 <div id="msgpiloto2"></div><br><br>
                 Corrida: <button onclick="sortear()">Pontuação</button><br><br>
-                Resultado: <button onclick="resultParcial()">Classificação</button>
-                ITENS!!! <button onclick="risco()">Perigo!</button><br><br>
-                Final: <button onclick="resultFinal()">Resultados</button>
-                <div id="mensagem"></div>
             </div>
+            <div id="parcial" style="display: none;">
+                Classificação Parcial: <button onclick="resultParcial()">Classificação</button><br><br>
+            </div>
+            <div id="surpresa" style="display: none;">
+                ITENS!!! <button onclick="risco()">Perigo!</button><br><br>
+            </div>
+            <div id="final" style="display: none;">
+                Resultado Final: <button onclick="resultFinal()">Resultados</button>
+            </div>
+            <div id="mensagem"></div>
         </div>
     </div>
     <!-- simulador fim -->
@@ -89,8 +95,8 @@
         </div>
     </div>
     <!--footer fim-->
-    
-    
+
+
 </body>
 <script>
     let P1 = [];
@@ -129,6 +135,8 @@
                 P2.push(Number((sorteio2 * 11 + 1).toFixed(0)));
             }
         }
+        simcorrida.style.display = 'none';
+        parcial.style.display = 'block';
     }
     function resultParcial() {
         let sequencia = 0;
@@ -138,52 +146,54 @@
             sequencia++
         }
         mensagem.innerHTML = `<br><br>Resultados: Jogador 1 = ${PontFinal1} pontos<br><br>Jogador 2 = ${PontFinal2} pontos`
+        surpresa.style.display = 'block';
     }
-    function risco(){
+    function risco() {
         let sorteioRisco1 = Math.random()
-        if ((sorteioRisco1 * 9 + 1).toFixed(0) == 1){
+        if ((sorteioRisco1 * 9 + 1).toFixed(0) == 1) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML = `Jogador 1: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
-        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 2){
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 2) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML = `Jogador 1: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
-        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 3){
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 3) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML = `Jogador 1: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
-        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 5){
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 5) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML = `Jogador 1: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
-        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 8){
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 8) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML = `Jogador 1: Você levou choque de um raio e perdeu 16 pontos<br><br>`
-        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 10){
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 10) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML = `Jogador 1: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
         } else {
             mensagem.innerHTML = `Jogador 1: Você passou ileso pelos itens e não perdeu pontos<br><br>`
         }
         let sorteioRisco2 = Math.random()
-        if ((sorteioRisco2 * 9 + 1).toFixed(0) == 1){
+        if ((sorteioRisco2 * 9 + 1).toFixed(0) == 1) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML += `Jogador 2: Você escorregou na casca de banana e perdeu 2 pontos`
-        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 2){
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 2) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML += `Jogador 2: Você levou dano de um casco verde e perdeu 4 pontos`
-        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 3){
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 3) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML += `Jogador 2: Você levou dano de um casco vermelho e perdeu 6 pontos`
-        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 5){
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 5) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML += `Jogador 2: Você foi explodido por uma Bob-omb e perdeu 10 pontos`
-        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 8){
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 8) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML += `Jogador 2: Você levou choque de um raio e perdeu 16 pontos`
-        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 10){
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 10) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
             mensagem.innerHTML += `Jogador 2: Você levou um casco azul na cabeça e perdeu 20 pontos`
         } else {
             mensagem.innerHTML += `Jogador 2: Você passou ileso pelos itens e não perdeu pontos`
         }
+        final.style.display = 'block'
     }
     function resultFinal() {
         if (PontFinal1 > PontFinal2) {

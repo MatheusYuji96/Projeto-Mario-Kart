@@ -23,6 +23,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
+  background-color: rgb(2, 2, 67);
   border-bottom: 2px solid #32b9cd;
 }
 
@@ -34,7 +35,7 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: #57f035;
 }
 
 .agora {
@@ -47,11 +48,11 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color: #57f035;
 }
 
 .titulo {
-  color: #32b9cd;
+  color: #e7f734;
   width: fit-content;
   font-weight: 500;
 }
@@ -139,6 +140,10 @@ color: red;
   font-size: 1rem;
 }
 
+.title h2 {
+font-size: 2.4rem;
+}
+
 .content{
   display: flex;
   justify-content: center;
@@ -199,6 +204,8 @@ color: red;
 
 .box span{
   color: yellow;
+  font-size: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #fotoModo1 img {
@@ -213,7 +220,8 @@ color: red;
 
 .footer {
   height: var(--tamanho-footer);
-  background-color: #32b9cd;
+  background-color: rgb(2, 2, 67);
+  border-top: 2px solid #32b9cd;
   height: 150px;
   color: #fff;
   display: flex;
@@ -233,8 +241,9 @@ color: red;
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url('../assets/imgs/MKLogo.png');
   background-size: cover;
+  background-position: 0vh;
 }
 
 .login .container {

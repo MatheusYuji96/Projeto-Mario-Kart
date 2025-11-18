@@ -24,16 +24,14 @@ function autenticar(req, res) {
                             .then((resultadoAquarios) => {
                                 if (resultadoAquarios.length > 0) {
                                     res.json({
-                                        nome: resultadoAutenticar[0].nome,
-                                        cpf: resultadoAutenticar[0].cpf,
-                                        email: resultadoAutenticar[0].email,
-                                        dataNasc: resultadoAutenticar[0].dataNasc,
-                                        senha: resultadoAutenticar[0].senha,
-                                        ceTitulos: resultadoAutenticar[0].ceTitulos,
-                                        titulos: resultadoAquarios
+                                        id: resultadoAutenticar[0].idUsuario,
+                                        nome: resultadoAutenticar[0].Nome,
+                                        email: resultadoAutenticar[0].Email,
+                                        senha: resultadoAutenticar[0].Senha,
+                                        Titulo: resultadoAquarios
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    res.status(204).json({ Titulo: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {
