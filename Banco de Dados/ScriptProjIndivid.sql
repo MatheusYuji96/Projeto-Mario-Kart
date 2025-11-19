@@ -272,6 +272,7 @@ insert into Pistas values
 create table Vendas(
 idVendas int,
 VendasJogo int not null,
+Periodo datetime not null,
 ceTitulos int,
 primary key (ceTitulos, idVendas),
 foreign key (ceTitulos) references Titulos(idTitulos));
@@ -279,14 +280,22 @@ foreign key (ceTitulos) references Titulos(idTitulos));
 
 drop table vendas;
 insert into vendas values
-(3, 300000, 1);
+(1, 223000, '1992-12-21', 1),
+(2, 103000, '1993-03-31', 1),
+(3, 102000, '1993-06-30', 1);
 
 use Mario_Kart;
 select * from Pistas;
 select * from Títulos;
+select *  from Vendas;
+select *  from Usuarios;
 
 select p.nome as Pistas, c.nome as Copa, NomeJogo as 'Game'
 from Pistas p join Títulos
 on p.ceTitulos = idTitulos
 join Copa c on p.ceCopa = idCopa
 where NomeJogo = 'Mario Kart 64';
+
+SELECT * FROM Usuarios WHERE ceTitulos;
+
+SELECT VendasJogo as 'Vendas do Software' FROM Vendas join Titulos WHERE ceTitulos = idTitulos ORDER BY idVendas;
