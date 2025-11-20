@@ -7,7 +7,7 @@ function buscarDadosVendas(idTitulos) {
     DATE_FORMAT(Periodo, '%Y-%m') as periodo_vendas
                     FROM Vendas
                     WHERE ceTitulos = ${idTitulos}
-                    ORDER BY idVenda ASC `;
+                    ORDER BY idVendas ASC `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

@@ -280,6 +280,7 @@ body {
   justify-content: center;
 }
 
+
 .btn-chart {
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 0;
@@ -301,7 +302,7 @@ body {
 .btn-white {
   color: #e6005a;
   background-color: white;
-
+  
 }
 
 .label-captura {
@@ -335,6 +336,47 @@ canvas {
 .header-left a {
   text-decoration: none;
   color: white;
+}
+
+#painel {
+  background-color: #ffffff;
+}
+
+.indics {
+  display: flex;
+  width: 90%;
+  background-color: #32b9cd;
+}
+
+.kpi {
+  padding: 0 20px 0 20px;
+  justify-content: center;
+  border: 2px solid #161618;
+  box-shadow: 1px 1px 1px 1px;
+  border-radius: 5px;
+}
+
+#grafico1 {
+  box-shadow: 2px;
+  background-color: #ffffff;
+}
+
+#dado1 {
+  width: 30%;
+}
+
+#dado2 {
+  padding: 0 20px 0 20px;
+  width: 30%;
+  justify-content: center;
+}
+
+#dado3 {
+  justify-content: center;
+}
+
+#dado4 {
+  justify-content: center;;
 }
 
 .header-left {

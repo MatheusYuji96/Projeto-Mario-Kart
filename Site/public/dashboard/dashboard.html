@@ -62,7 +62,7 @@
 
         </div>
 
-        <div class="dash">
+        <div class="dash" id="dash">
             <div id="alerta">
             </div>
 
@@ -70,11 +70,29 @@
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
             <div id="graficos">
+                <div class="indics">
+                    <div class="kpi" id="dado1">
+                        <p id="ind1"></p>
+                        <h2 id="kpi1"></h2>
+                    </div>
+                    <div class="kpi" id="dado2">
+                        <p id="ind2"></p>
+                        <h2 id="kpi2"></h2>
+                    </div>
+                    <div class="kpi" id="dado3">
+                        <p id="ind3"></p>
+                        <h2 id="kpi3"></h2>
+                    </div>
+                    <div class="kpi" id="dado4">
+                        <p id="ind4"></p>
+                        <h2 id="kpi4"></h2>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
-    </div>
-    <div>
-        <canvas id="myChart"></canvas>
     </div>
 
 
@@ -129,6 +147,115 @@
         console.log(tituloJogo)
     }
 
+    function customizarPorTitulos(idTitulos) {
+        if (idTitulos == 1) {
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `4º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8.760.000`;
+            document.getElementById('ind4').innerHTML = `Nota no GameRankings`;
+            document.getElementById('kpi4').innerHTML = `93.60%`;
+        } else if (idTitulos == 2) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `2º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `83/100`;
+        } else if (idTitulos == 3) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `4º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `93/100`;
+        } else if (idTitulos == 4) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `2º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `87/100`;
+        } else if (idTitulos == 5) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `3º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `91/100`;
+        } else if (idTitulos == 6) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `2º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `82/100`;
+        } else if (idTitulos == 7) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `1º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `85/100`;
+        } else if (idTitulos == 8) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `1º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `88/100`;
+        } else if (idTitulos == 9) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `1º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `92/100`;
+        } else if (idTitulos == 10) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = 'Número de Downloads';
+            document.getElementById('kpi1').innerHTML = `100.000.000+`;
+            document.getElementById('ind2').innerHTML = 'Nota na Google Play Store';
+            document.getElementById('kpi2').innerHTML = `4.4/5`;
+        } else if (idTitulos == 11) {
+            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
+            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
+            document.getElementById('kpi1').innerHTML = `198.900.000`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
+            document.getElementById('kpi2').innerHTML = `1º`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `8760000`;
+            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
+            document.getElementById('kpi4').innerHTML = `86/100`;
+        }
+    }
+
     function exibirVenda(idTitulos) {
         let todosOsGraficos = JSON.parse(sessionStorage.Titulo);
 
@@ -175,6 +302,7 @@
     function obterDadosGrafico(idTitulos) {
         console.log("ObterDados")
         alterarTitulo(idTitulos)
+        customizarPorTitulos(idTitulos)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
