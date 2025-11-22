@@ -20,7 +20,7 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        vendasModel.buscarTitulosPorUsuarios(resultadoAutenticar[0].Jogo)
+                        vendasModel.buscarTitulosPorUsuarios(resultadoAutenticar[0].idUsuario)
                             .then((resultadoAquarios) => {
                                 if (resultadoAquarios.length > 0) {
                                     res.json({

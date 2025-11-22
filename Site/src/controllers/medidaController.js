@@ -4,11 +4,11 @@ function buscarDadosVendas(req, res) {
 
     const limite_linhas = 7;
 
-    var idTitulos = req.params.idTitulos;
+    var idUsuario = req.params.idUsuario;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarDadosVendas(idTitulos).then(function (resultado) {
+    medidaModel.buscarDadosVendas(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -24,11 +24,11 @@ function buscarDadosVendas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idTitulos = req.params.idTitulos;
+    var idUsuario = req.params.idUsuario;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idTitulos).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

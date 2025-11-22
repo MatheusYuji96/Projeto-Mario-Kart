@@ -18,17 +18,22 @@ function buscarTitulosPorUsuarios(req, res) {
 
 
 function cadastrar(req, res) {
-  var NomeJogo = req.body.NomeJogo;
-  var ceTitulos = req.body.ceTitulos;
-
-  if (NomeJogoJogo == undefined) {
-    res.status(400).send("vendasJogo está undefined!");
-  } else if (idUsuario == undefined) {
-    res.status(400).send("ceTitulos está undefined!");
+  var PontFinal1 = req.body.PontFinal1;
+  var PontFinal2 = req.body.PontFinal2;
+  var ceUsuario = req.body.ceUsuario;
+console.log(PontFinal1)
+console.log(PontFinal2)
+console.log(ceUsuario)
+  if (PontFinal1 == undefined) {
+    res.status(400).send("PontFinal1 está undefined!");
+  } else if (PontFinal2 == undefined) {
+    res.status(400).send("PontFinal2 está undefined!");
+  } else if (ceUsuario == undefined) {
+    res.status(400).send("ceUsuario está undefined!");
   } else {
 
 
-    vendasModel.cadastrar(NomeJogo, ceTitulos)
+    vendasModel.cadastrar(PontFinal1, PontFinal2, ceUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       }

@@ -1,16 +1,16 @@
 var database = require("../database/config");
 
-function buscarTitulosPorUsuarios(Jogo) {
+function buscarTitulosPorUsuarios(idUsuario) {
 
-  var instrucaoSql = `SELECT * FROM Titulos WHERE idTitulos = ${Jogo}`;
+  var instrucaoSql = `SELECT * FROM Usuarios WHERE idUsuario = ${idUsuario}`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(Jogo, VendasJogo) {
+function cadastrar(PontFinal1, PontFinal2, ceUsuario) {
   
-  var instrucaoSql = `INSERT INTO (vendasJogo, ceTitulos) Vendas VALUES (${VendasJogo}, ${Jogo})`;
+  var instrucaoSql = `INSERT INTO ResultadoSimulador (PontFinal1, PontFinal2, ceUsuario) VALUES (${PontFinal1}, ${PontFinal2}, ${ceUsuario})`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

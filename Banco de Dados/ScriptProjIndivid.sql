@@ -269,33 +269,25 @@ insert into Pistas values
 (11, 4, 3, 'Peach Stadium', 'Estádio', 'Voltas'),
 (11, 4, 4, "Rainbow Road", 'Espacial', 'Voltas');
 
-create table Vendas(
-idVendas int,
-VendasJogo int not null,
-Periodo datetime not null,
-ceTitulos int,
-primary key (ceTitulos, idVendas),
-foreign key (ceTitulos) references Titulos(idTitulos));
+create table ResultadoSimulador(
+idResult int primary key auto_increment,
+PontFinal1 int,
+PontFinal2 int,
+ceUsuario int,
+foreign key (ceUsuario) references Usuarios(idUsuario));
 
-
-drop table vendas;
-insert into vendas values
-(1, 223000, '1992-12-21', 1),
-(2, 103000, '1993-03-31', 1),
-(3, 102000, '1993-06-30', 1);
+select * from ResultadoSimulador;
 
 use Mario_Kart;
 select * from Pistas;
 select * from Títulos;
-select *  from Vendas;
-select *  from Usuarios;
+select * from ResultadoSimulador;
+select * from Usuarios;
 
 select p.nome as Pistas, c.nome as Copa, NomeJogo as 'Game'
-from Pistas p join Títulos
+from Pistas p join Titulos
 on p.ceTitulos = idTitulos
 join Copa c on p.ceCopa = idCopa
 where NomeJogo = 'Mario Kart 64';
 
 SELECT * FROM Usuarios WHERE ceTitulos;
-
-SELECT VendasJogo as 'Vendas do Software' FROM Vendas join Titulos WHERE ceTitulos = idTitulos ORDER BY idVendas;

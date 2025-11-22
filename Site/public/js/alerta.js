@@ -1,17 +1,17 @@
 var alertas = [];
 
-function obterdados(idTitulos) {
-    fetch(`/medidas/tempo-real/${idTitulos}`)
+function obterdados(idUsuario) {
+    fetch(`/medidas/tempo-real/${idUsuario}`)
         .then(resposta => {
             if (resposta.status == 200) {
                 resposta.json().then(resposta => {
 
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    alertar(resposta, idTitulos);
+                    alertar(resposta, idUsuario);
                 });
             } else {
-                console.error(`Nenhum dado encontrado para o id ${idTitulos} ou erro na API`);
+                console.error(`Nenhum dado encontrado para o id ${idUsuario} ou erro na API`);
             }
         })
         .catch(function (error) {

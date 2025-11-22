@@ -1,13 +1,13 @@
 var database = require("../database/config");
 
-function buscarPorIdTitulos(ceTitulos) {
-  var instrucaoSql = `SELECT * FROM Títulos WHERE idTitulos = '${ceTitulos}'`;
+function buscarPoridUsuario(ceTitulos) {
+  var instrucaoSql = `SELECT * FROM Títulos WHERE idUsuario = '${ceTitulos}'`;
 
   return database.executar(instrucaoSql);
 }
 
 function listar() {
-  var instrucaoSql = `SELECT idTitulos, NomeJogo, DataLanc, Console, Mecanica, Online FROM Títulos`;
+  var instrucaoSql = `SELECT idUsuario, NomeJogo, DataLanc, Console, Mecanica, Online FROM Títulos`;
 
   return database.executar(instrucaoSql);
 }
@@ -24,4 +24,4 @@ function cadastrar(nome, cpf) {
   return database.executar(instrucaoSql);
 }
 
-module.exports = { buscarPorConsole, buscarPorIdTitulos, cadastrar, listar };
+module.exports = { buscarPorConsole, buscarPoridUsuario, cadastrar, listar };

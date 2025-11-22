@@ -22,99 +22,231 @@
 
 <body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
 
-    <div class="janela">
 
-        <div class="header-left dash-header">
+    <div class="header-left dash-header">
 
-            <h1>Projeto Mario Kart</h1>
+        <h1>Projeto Mario Kart</h1>
 
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Aquários</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
-            <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                    Legenda - Parâmetros para Alertas
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Perigo</p>
-                        <p>&lt;=5°C</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Alerta</p>
-                        <p>&lt;=10°C</p>
-                    </div>
-                    <div class="item-regua ideal">
-                        <p>Ideal</p>
-                        <p>20°C</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Alerta</p>
-                        <p>&gt;=22°C</p>
-                    </div>
-                    <div class="item-regua perigo-quente">
-                        <p>Perigo</p>
-                        <p>&gt;=23°C</p>
-                    </div>
+        <div class="btn-nav">
+            <h3>Aquários</h3>
+        </div>
+
+        <div class="btn-nav-white">
+            <a href="./dashboard.html">
+                <h3>Gráficos</h3>
+            </a>
+        </div>
+
+        <div class="btn-nav-white">
+            <a href="./mural.html">
+                <h3>Mural de Avisos</h3>
+            </a>
+        </div>
+
+        <div class="btn-logout" onclick="limparSessao()">
+            <h3>Sair</h3>
+        </div>
+    </div>
+    <div class="janela-card">
+
+        <!-- simulador inicio -->
+        <div class="simulador">
+            <div class="container">
+                <h1>Simulador</h1>
+                <h3>Vamos lá!! Quer imaginar como funciona uma corrida em Mario Kart? Então vamos brincar neste
+                    simulador de corrida!!</h3><br><br>
+                <div class="simula" id="simcorrida" style="display: block;">
+                    Quais os Nomes dos Jogadores?<br><br><input type="text" id="iptNome1">
+                    <div id="msgjogador1"></div><br><br><input type="text" id="iptNome2">
+                    <div id="msgjogador2"></div><br><br>
+                    Quantas corridas? <input type="number" id="iptNumCor" min="3" max="12">
+                    <div id="msgnumcor"></div><br><br>
+                    Jogador 1: Escolha um piloto: <select id="piloto1">
+                        <option value="#">Selecione</option>
+                        <option value="Mario">Mario</option>
+                        <option value="Luigi">Luigi</option>
+                        <option value="Yoshi">Yoshi</option>
+                        <option value="Peach">Peach</option>
+                        <option value="Bowser">Bowser</option>
+                    </select>
+                    <div id="msgpiloto1"></div><br><br>
+                    Jogador 2: Escolha o piloto <select id="piloto2">
+                        <option value="#">Selecione</option>
+                        <option value="M">Mario</option>
+                        <option value="L">Luigi</option>
+                        <option value="Yoshi">Yoshi</option>
+                        <option value="Peach">Peach</option>
+                        <option value="Bowser">Bowser</option>
+                    </select>
+                    <div id="msgpiloto2"></div><br><br>
+                    Corrida: <button onclick="sortear()">Pontuação</button><br><br>
+                </div>
+                <div id="parcial" style="display: none;">
+                    Classificação Parcial: <button onclick="resultParcial()">Classificação</button><br><br>
+                </div>
+                <div id="surpresa" style="display: none;">
+                    ITENS!!! <button onclick="risco()">Perigo!</button><br><br>
+                </div>
+                <div id="final" style="display: none;">
+                    Resultado Final: <button onclick="resultFinal()">Resultados</button>
+                </div>
+                <div id="mensagem"></div>
+                <div id="volta" style="display: none;">
+                    <button onclick="voltar()">Voltar</button>
                 </div>
             </div>
-
-            <div class="cards" id="cardAquarios">
-
-            </div>
-
         </div>
-
-    </div>
+        <!-- simulador fim -->
 
 </body>
-
 <script>
-
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.Titulo).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.NomeJogo}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.idTitulos}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.idTitulos}"></div>
-                    </div>
-                    </div>
-                    `
-        });
+    let P1 = [];
+    let P2 = [];
+    let PontFinal1 = 0;
+    let PontFinal2 = 0;
+    var Rodada = 0;
+    function sortear() {
+        let nome1 = iptNome1.value;
+        let nome2 = iptNome2.value;
+        let nomepiloto1 = piloto1.value;
+        let nomepiloto2 = piloto2.value;
+        let numCor = Number(iptNumCor.value);
+        if (iptNome1.value == '' && iptNome2.value == '') {
+            msgjogador1.innerHTML = `Insira o nome do jogador 1`
+            msgjogador2.innerHTML = `Insira o nome do jogador 2`
+        } else if (iptNome1.value == '') {
+            msgjogador1.innerHTML = `Insira o nome do jogador 1`
+        } else if (iptNome2.value == '') {
+            msgjogador2.innerHTML = `Insira o nome do jogador 2`
+        }
+        if (piloto1.value == '#' && piloto2.value == '#') {
+            msgpiloto1.innerHTML = `Escolha um piloto dentre as opções`
+            msgpiloto2.innerHTML = `Escolha um piloto dentre as opções`
+        } else if (piloto1.value == '#') {
+            msgpiloto1.innerHTML = `Escolha um piloto dentre as opções`
+        } else if (piloto2.value == '#') {
+            msgpiloto2.innerHTML = `Escolha um piloto dentre as opções`
+        }
+        if (iptNumCor.value == '' || numCor <= 2 || numCor > 12 || numCor % 1 != 0) {
+            msgnumcor.innerHTML = `Escolha um número de corridas inteiro e entre 3 e 12`
+        } else {
+            for (let sequencia = 0; sequencia < numCor; sequencia++) {
+                let sorteio1 = Math.random()
+                P1.push(Number((sorteio1 * 11 + 1).toFixed(0)));
+                let sorteio2 = Math.random()
+                P2.push(Number((sorteio2 * 11 + 1).toFixed(0)));
+            }
+        }
+        simcorrida.style.display = 'none';
+        parcial.style.display = 'block';
+        Rodada++
     }
-
+    function resultParcial() {
+        let sequencia = 0;
+        while (sequencia < P1.length) {
+            PontFinal1 = PontFinal1 + P1[sequencia];
+            PontFinal2 = PontFinal2 + P2[sequencia];
+            sequencia++
+        }
+        mensagem.innerHTML = `<br><br>Resultados: Jogador 1 = ${PontFinal1} pontos<br><br>Jogador 2 = ${PontFinal2} pontos`
+        surpresa.style.display = 'block';
+    }
+    function risco() {
+        let sorteioRisco1 = Math.random()
+        if ((sorteioRisco1 * 9 + 1).toFixed(0) == 1) {
+            PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML = `Jogador 1: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 2) {
+            PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML = `Jogador 1: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 3) {
+            PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML = `Jogador 1: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 5) {
+            PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML = `Jogador 1: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 8) {
+            PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML = `Jogador 1: Você levou choque de um raio e perdeu 16 pontos<br><br>`
+        } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 10) {
+            PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML = `Jogador 1: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
+        } else {
+            mensagem.innerHTML = `Jogador 1: Você passou ileso pelos itens e não perdeu pontos<br><br>`
+        }
+        let sorteioRisco2 = Math.random()
+        if ((sorteioRisco2 * 9 + 1).toFixed(0) == 1) {
+            PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML += `Jogador 2: Você escorregou na casca de banana e perdeu 2 pontos`
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 2) {
+            PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML += `Jogador 2: Você levou dano de um casco verde e perdeu 4 pontos`
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 3) {
+            PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML += `Jogador 2: Você levou dano de um casco vermelho e perdeu 6 pontos`
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 5) {
+            PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML += `Jogador 2: Você foi explodido por uma Bob-omb e perdeu 10 pontos`
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 8) {
+            PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML += `Jogador 2: Você levou choque de um raio e perdeu 16 pontos`
+        } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 10) {
+            PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
+            mensagem.innerHTML += `Jogador 2: Você levou um casco azul na cabeça e perdeu 20 pontos`
+        } else {
+            mensagem.innerHTML += `Jogador 2: Você passou ileso pelos itens e não perdeu pontos`
+        }
+        final.style.display = 'block'
+    }
+    function resultFinal() {
+        if (PontFinal1 > PontFinal2) {
+            mensagem.innerHTML = `Parabéns, Jogador 1!! Você venceu a competição!!`
+        } else if (PontFinal2 > PontFinal1) {
+            mensagem.innerHTML = `Parabéns, Jogador 2!! Você venceu a competição!!`
+        } else if (PontFinal1 == PontFinal2) {
+            mensagem.innerHTML = `Temos um EMPATEEE!!`
+        }
+        mensagem.innerHTML += `<br><br>Resultados Finais: Jogador 1 = ${PontFinal1} pontos<br><br>Jogador 2 = ${PontFinal2} pontos`
+        console.log(PontFinal1)
+        console.log(PontFinal2)
+        console.log(Rodada)
+        fetch("/aquarios/cadastrar", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                PontFinal1: PontFinal1,
+                PontFinal2: PontFinal2,
+                ceUsuario: sessionStorage.ID_USUARIO
+            })
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
+            if (resposta.ok) {
+                console.log("Dados de PontFinal1, PontFinal2, Rodada e ceUsuario guardados com sucesso")
+            } else {
+                console.log(`Problemas no armazenamento. Verificar.`);
+            }
+        })
+        P1 = [];
+        P2 = [];
+        PontFinal1 = PontFinal1 * 0;
+        PontFinal2 = PontFinal2 * 0;
+        console.log(PontFinal1)
+        console.log(PontFinal2)
+        volta.style.display = 'block';
+    }
+    function voltar(){
+        simcorrida.style.display = 'block';
+        parcial.style.display = 'none';
+        surpresa.style.display = 'none';
+        final.style.display = 'none';
+        volta.style.display = 'none';
+    }
 </script>
 
 </html>

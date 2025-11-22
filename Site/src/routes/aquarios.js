@@ -3,7 +3,7 @@ var router = express.Router();
 
 var vendasController = require("../controllers/vendasController");
 
-router.get("/:Jogo", function (req, res) {
+router.get("/:idUsuario", function (req, res) {
   vendasController.buscarTitulosPorUsuarios(req, res);
 });
 

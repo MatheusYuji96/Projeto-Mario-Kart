@@ -1,27 +1,28 @@
 var database = require("../database/config");
 
-function buscarDadosVendas(idTitulos) {
+function buscarDadosVendas(idUsuario) {
 
     var instrucaoSql = `SELECT
-    VendasJogo as Vendas,
-    DATE_FORMAT(Periodo, '%Y-%m') as periodo_vendas
-                    FROM Vendas
-                    WHERE ceTitulos = ${idTitulos}
-                    ORDER BY idVendas ASC `;
+    PontFinal1,
+    PontFinal2,
+    idResult
+                    FROM ResultadoSimulador
+                    WHERE ceUsuario = ${idUsuario}
+                    ORDER BY idResult DESC`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idTitulos) {
+function buscarMedidasEmTempoReal(idUsuario) {
 
     var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idTitulos} 
-                    ORDER BY id DESC LIMIT 1`;
+        PontFinal1, 
+        PontFinal2,
+        idResult
+                        FROM ResultadoSimulador
+                        WHERE ceUsuario = ${idUsuario}
+                        ORDER BY idResult DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
