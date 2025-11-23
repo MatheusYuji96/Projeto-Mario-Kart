@@ -118,29 +118,34 @@
     function sortear() {
         let nome1 = iptNome1.value;
         let nome2 = iptNome2.value;
-        console.log(nome1)
-        console.log(nome2)
         let nomepiloto1 = piloto1.value;
         let nomepiloto2 = piloto2.value;
         let numCor = Number(iptNumCor.value);
         if (iptNome1.value == '' && iptNome2.value == '') {
             msgjogador1.innerHTML = `Insira o nome do jogador 1`
             msgjogador2.innerHTML = `Insira o nome do jogador 2`
+            return false;
         } else if (iptNome1.value == '') {
             msgjogador1.innerHTML = `Insira o nome do jogador 1`
+            return false;
         } else if (iptNome2.value == '') {
             msgjogador2.innerHTML = `Insira o nome do jogador 2`
+            return false;
+        }
+        if (iptNumCor.value == '' || numCor <= 2 || numCor > 12 || numCor % 1 != 0) {
+            msgnumcor.innerHTML = `Escolha um número de corridas inteiro e entre 3 e 12`
+            return false;
         }
         if (piloto1.value == '#' && piloto2.value == '#') {
             msgpiloto1.innerHTML = `Escolha um piloto dentre as opções`
             msgpiloto2.innerHTML = `Escolha um piloto dentre as opções`
+            return false;
         } else if (piloto1.value == '#') {
             msgpiloto1.innerHTML = `Escolha um piloto dentre as opções`
+            return false;
         } else if (piloto2.value == '#') {
             msgpiloto2.innerHTML = `Escolha um piloto dentre as opções`
-        }
-        if (iptNumCor.value == '' || numCor <= 2 || numCor > 12 || numCor % 1 != 0) {
-            msgnumcor.innerHTML = `Escolha um número de corridas inteiro e entre 3 e 12`
+            return false;
         } else {
             for (let sequencia = 0; sequencia < numCor; sequencia++) {
                 let sorteio1 = Math.random()
@@ -175,43 +180,55 @@
         if ((sorteioRisco1 * 9 + 1).toFixed(0) == 1) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             msgItens.innerHTML = `<b>${nome1}</b>: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKbanana.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 2) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             msgItens.innerHTML = `<b>${nome1}</b>: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverde.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 3) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             msgItens.innerHTML = `<b>${nome1}</b>: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverm.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 5) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             msgItens.innerHTML = `<b>${nome1}</b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKbob.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 8) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             msgItens.innerHTML = `<b>${nome1}</b>: Você levou choque de um raio e perdeu 16 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKraio.jpg" style="width: 90px; height: 110px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 10) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
             msgItens.innerHTML = `<b>${nome1}</b>: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKcascoazul.jpg" style="width: 100px; height: 100px"><br><br>`
         } else {
             msgItens.innerHTML = `<b>${nome1}</b>: Você passou ileso pelos itens e não perdeu pontos<br><br>`
         }
         let sorteioRisco2 = Math.random()
         if ((sorteioRisco2 * 9 + 1).toFixed(0) == 1) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você escorregou na casca de banana e perdeu 2 pontos`
+            msgItens.innerHTML += `<b>${nome2}</b>: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKbanana.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 2) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou dano de um casco verde e perdeu 4 pontos`
+            msgItens.innerHTML += `<b>${nome2}</b>: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverde.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 3) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou dano de um casco vermelho e perdeu 6 pontos`
+            msgItens.innerHTML += `<b>${nome2}</b>: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverm.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 5) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos`
+            msgItens.innerHTML += `<b>${nome2}</b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKbob.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 8) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou choque de um raio e perdeu 16 pontos`
+            msgItens.innerHTML += `<b>${nome2}</b>: Você levou choque de um raio e perdeu 16 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKraio.jpg" style="width: 90px; height: 110px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 10) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou um casco azul na cabeça e perdeu 20 pontos`
+            msgItens.innerHTML += `<b>${nome2}</b>: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
+            msgItens.innerHTML += `<img src="../assets/imgs/MKcascoazul.jpg" style="width: 100px; height: 100px"><br><br>`
         } else {
             msgItens.innerHTML += `<b>${nome2}</b>: Você passou ileso pelos itens e não perdeu pontos`
         }
@@ -230,10 +247,13 @@
         } else if (PontFinal1 == PontFinal2) {
             mensagem.innerHTML = `Temos um EMPATEEE!!`
         }
+        if (PontFinal1 < 0) {
+            PontFinal1 = 0;
+        }
+        if (PontFinal2 < 0) {
+            PontFinal2 = 0;
+        }
         mensagem.innerHTML += `<br><br><b>Resultados Finais: ${nome1} = ${PontFinal1} pontos<br><br>${nome2} = ${PontFinal2} pontos</b>`
-        console.log(PontFinal1)
-        console.log(PontFinal2)
-        console.log(Rodada)
         fetch("/resultados/cadastrar", {
             method: "post",
             headers: {
@@ -258,8 +278,6 @@
         P2 = [];
         PontFinal1 = PontFinal1 * 0;
         PontFinal2 = PontFinal2 * 0;
-        console.log(VitoriaP1)
-        console.log(VitoriaP2)
         final.style.display = 'none';
         volta.style.display = 'block';
         iptNome1.value = '';

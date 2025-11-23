@@ -283,6 +283,9 @@ select * from Títulos;
 select *  from Usuarios;
 select * from ResultadoSimulador;
 
+select Nome from Pistas
+where Nome like '%d';
+
 select p.nome as Pistas, c.nome as Copa, NomeJogo as 'Game'
 from Pistas p join Titulos
 on p.ceTitulos = idTitulos
