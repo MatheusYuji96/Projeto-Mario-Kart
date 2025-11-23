@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .label-captura {
@@ -16,7 +16,7 @@ body {
 .dash-right .avisos {
   width: 100%;
   color: rgb(216, 216, 216);
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .dash-right .avisos .container {
@@ -51,7 +51,7 @@ body {
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -64,7 +64,7 @@ body {
 
 .publicacao-btn-editar {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -294,7 +294,7 @@ body {
 }
 
 .btn-chart {
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 0;
   font-weight: 600;
   font-size: 18px;
@@ -346,11 +346,11 @@ canvas {
 }
 
 .janela-card {
-  position: fixed;
+  justify-content: flex-end;
   top: 0;
-  left: 20%;
-  height: 100vh;
-  width: 100vw;
+  left: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
 }
@@ -410,7 +410,7 @@ canvas {
   justify-content: space-evenly;
   align-items: center;
   border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  background-color: rgb(2, 2, 67);
 }
 
 .dash-right {
@@ -426,7 +426,7 @@ canvas {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: #e7f734;
 }
 
 .hello {
@@ -448,7 +448,7 @@ canvas {
 .btn-nav {
   width: 40%;
   color: white;
-  background-color: #e6005a;
+  background-color: green;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
@@ -457,14 +457,14 @@ canvas {
 .btn-nav-white {
   width: 40%;
   background-color: white;
-  border: 3px solid #e6005a;
+  border: 3px solid green;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: green;
   padding: 0;
   margin: 0;
 }
@@ -492,30 +492,38 @@ canvas {
 
 .simulador {
   color: white;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWart.avif');
+  background-image: url('../assets/imgs/MKWart2.jpg');
   background-size: cover;
   background-position: center;
-  height: 225vh;
+  height: 150vh;
+  display: flex;
 }
 
-.container {
-  height: var(--tamanho-simulador);
+.container1 {
+  height: 125vh;
+  width: 81vw;
+  padding: 0 5% 0 5%;
+  justify-content: flex-end;
   flex-direction: column;
 }
 
-.simulador .container .jogo{
+.simulador .container1 .jogo{
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.container h1, h3{
+.container1 h1, h3{
   flex-direction: column;
 }
 
-.container h1{
+.container1 h1{
   font-size: 2.5rem;
+}
+
+.container1 span {
+  font-weight: bold;
 }
 
 .jogo img{

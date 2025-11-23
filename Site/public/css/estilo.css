@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: black;
 }
 
@@ -25,6 +25,7 @@ body {
   height: var(--tamanho-header);
   background-color: rgb(2, 2, 67);
   border-bottom: 2px solid #32b9cd;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .header .container {
@@ -104,7 +105,31 @@ body {
 /* Linha do Tempo */
 
 .social {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8DRR.jpg');
+  background-image: url('../assets/imgs/MK8DRR.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  color: white;
+}
+
+#modos {
+  background-image: url('../assets/imgs/MK64index.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  color: white;
+}
+
+#pistas {
+  background-image: url('../assets/imgs/MKWfoto.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  color: white;
+}
+
+#pilotos {
+  background-image: url('../assets/imgs/MK64BC.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -119,11 +144,11 @@ body {
 }
 
 #mario2 {
-color: yellow;
+  color: yellow;
 }
 
 #kart2 {
-color: red;
+  color: red;
 }
 
 .box {
@@ -141,10 +166,11 @@ color: red;
 }
 
 .title h2 {
-font-size: 2.4rem;
+  font-size: 2.8rem;
+  color: #32b9cd;
 }
 
-.content{
+.content {
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -152,7 +178,7 @@ font-size: 2.4rem;
   font-size: 1.4rem;
 }
 
-#video1{
+#video1 {
   max-width: 40%;
   justify-content: center;
   align-items: center;
@@ -177,28 +203,28 @@ font-size: 2.4rem;
   align-items: center;
 }
 
-#fotoSMKRR img{
+#fotoSMKRR img {
   width: 40vw;
 }
 
-.merchands{
+.gameIndex {
   justify-content: center;
   align-items: center;
 }
 
-#brinquedo1 img{
-  width: 250px;
+#game1 img {
+  width: 40vw;
 }
 
-#brinquedo2 img{
-  width: 350px;
+#game2 img {
+  width: 40vw;
 }
 
-#brinquedo3 img{
-  width: 350px;
+#game3 img {
+  width: 40vw;
 }
 
-.box img{
+.box img {
   width: 200px;
 }
 
@@ -206,7 +232,7 @@ font-size: 2.4rem;
   width: 400px;
 }
 
-.box span{
+.box span {
   color: yellow;
   font-size: 2rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -245,7 +271,7 @@ font-size: 2.4rem;
 
 .login {
   height: var(--tamanho-login);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url('../assets/imgs/MKLogo.png');
+  background-image: url('../assets/imgs/SSBUMK.jpg');
   background-size: cover;
   background-position: 0vh;
 }
@@ -256,35 +282,40 @@ font-size: 2.4rem;
   height: 100%;
 }
 
-.card-login{
+.card-login {
   width: 50%;
-  background-color: #e5e5e5;
+  background-color: rgb(14, 117, 244);
+  border: 2px solid #f71212;
+  box-shadow: 2px 2px 2px 2px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: #f71212;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
 }
 
-.card-cadastro{
+.card-cadastro {
   width: 50%;
-  background-color: #e5e5e5;
+  background-color: rgb(14, 117, 244);
+  border: 2px solid #f71212;
+  box-shadow: 2px 2px 2px 2px;
+  border-radius: 10px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: #f71212;
   flex-direction: column;
-  max-height: 70vh;
+  max-height: 90vh;
   padding: 20px 0;
 }
 
 .cadastro {
-  height: var(--tamanho-login);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url('../assets/imgs/MKLogo.png');
+  height: 100vh;
+  background-image: url('../assets/imgs/SSBUMK.jpg');
   background-size: cover;
   background-position: 0vh;
 }
@@ -376,7 +407,7 @@ font-size: 2.4rem;
 
 /* FORMULARIO */
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -393,7 +424,7 @@ font-size: 2.4rem;
   margin-right: 10%;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
 }
@@ -445,7 +476,7 @@ input {
 
 .historia {
   color: white;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWart.avif');
+  background-image: url('../assets/imgs/MKWart2.jpg');
   background-size: cover;
   background-position: center;
   height: 225vh;
@@ -456,25 +487,26 @@ input {
   flex-direction: column;
 }
 
-.historia .container .jogo{
+.historia .container .jogo {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.container h1{
+.container h1 {
   font-size: 2.5rem;
 }
 
-.jogo img{
+.jogo img {
   margin-top: 20px;
   align-items: center;
   justify-content: center;
   width: 200px;
 }
 
-.jogo span, p{
+.jogo span,
+p {
   justify-content: center;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -489,7 +521,11 @@ input {
   font-size: 1.4rem;
 }
 
-.dados{
+.game h4 {
+  color: rgb(118, 243, 122);
+}
+
+.dados {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -498,7 +534,12 @@ input {
   font-size: 1.2rem;
 }
 
-.dados span{
+.dados span {
+  font-weight: bold;
+  color: orange;
+}
+
+.detalhes {
   font-weight: bold;
 }
 
@@ -506,139 +547,73 @@ input {
   padding: 0 30px 0 0;
 }
 
-#SMK{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/SMKfundo.jpg');
+#SMK {
+  background-image: url('../assets/imgs/SMKfundo.jpg');
   background-size: cover;
   background-position: center;
 }
 
 #MK64 {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK64fundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MK64fundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #MKSC {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKSCfundo.jpg');
+  background-image: url('../assets/imgs/MKSCfundo.jpg');
   background-size: cover;
   background-position: center;
 }
 
 #MKDD {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKDDfundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MKDDfundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #MKDS {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKDSfundo.png');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MKDSfundo.png');
+  background-size: cover;
+  background-position: center;
 }
 
 #MKWii {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWiifundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MKWiifundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #MK7 {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK7fundo.png');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MK7fundo.png');
+  background-size: cover;
+  background-position: center;
 }
 
 #MK8 {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8fundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MK8fundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #MK8D {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8Dfundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MK8Dfundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #MKT {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKTfundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MKTfundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #MKW {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWfundo.jpg');
-background-size: cover;
-background-position: center;
+  background-image: url('../assets/imgs/MKWfundo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 /*Simulador*/
-
-#SMK{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/SMKfundo.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-#MK64 {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK64fundo.jpg');
-background-size: cover;
-background-position: center;
-}
-
-#MKSC {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKSCfundo.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-#MKDD {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKDDfundo.jpg');
-background-size: cover;
-background-position: center;
-}
-
-#MKDS {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKDSfundo.png');
-background-size: cover;
-background-position: center;
-}
-
-#MKWii {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWiifundo.jpg');
-background-size: cover;
-background-position: center;
-}
-
-#MK7 {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK7fundo.png');
-background-size: cover;
-background-position: center;
-}
-
-#MK8 {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8fundo.jpg');
-background-size: cover;
-background-position: center;
-}
-
-#MK8D {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MK8Dfundo.jpg');
-background-size: cover;
-background-position: center;
-}
-
-#MKT {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKTfundo.jpg');
-background-size: cover;
-background-position: center;
-}
-
-#MKW {
-background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/imgs/MKWfundo.jpg');
-background-size: cover;
-background-position: center;
-}
 
 /* ALERTA */
 
@@ -680,9 +655,23 @@ background-position: center;
 }
 
 @keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
+  0% {
+    transform: rotate(25deg)
+  }
+
+  25% {
+    transform: rotate(-25deg)
+  }
+
+  50% {
+    transform: rotate(25deg)
+  }
+
+  75% {
+    transform: rotate(-25deg)
+  }
+
+  100% {
+    transform: rotate(25deg)
+  }
 }

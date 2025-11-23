@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var vendasModel = require("../models/vendasModel");
+var resultadosModel = require("../models/resultadosModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -20,7 +20,7 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        vendasModel.buscarTitulosPorUsuarios(resultadoAutenticar[0].idUsuario)
+                        resultadosModel.buscarResultadosPorUsuarios(resultadoAutenticar[0].idUsuario)
                             .then((resultadoAquarios) => {
                                 if (resultadoAquarios.length > 0) {
                                     res.json({

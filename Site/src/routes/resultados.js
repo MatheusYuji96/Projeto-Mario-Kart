@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
 
-var vendasController = require("../controllers/vendasController");
+var resultadosController = require("../controllers/resultadosController");
 
 router.get("/:idUsuario", function (req, res) {
-  vendasController.buscarTitulosPorUsuarios(req, res);
+  resultadosController.buscarResultadosPorUsuarios(req, res);
 });
 
 router.post("/cadastrar", function (req, res) {
-  vendasController.cadastrar(req, res);
+  resultadosController.cadastrar(req, res);
 })
 
 module.exports = router;

@@ -25,10 +25,10 @@
           <a href="index.html">Inicial</a>
         </li>
         <li>
-          <a href="historia.html">Dados dos Jogos</a>
+          <a href="conheca.html">Conheça Mais</a>
         </li>
         <li>
-          <a href="simulador.html">Simulador</a>
+          <a href="historia.html">História</a>
         </li>
         <li>|</li>
         <li>
@@ -111,8 +111,10 @@
   <!--footer inicio-->
   <div class="footer">
     <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
+      <h4>Feito por: Matheus Yuji @ SPTech Ano: 2025</h4>
+    </div>
+    <div class="container">
+      <p>Fonte Imagem: Arquivo Pessoal</p>
     </div>
   </div>
   <!--footer fim-->
@@ -139,7 +141,7 @@
     var ceTitulosVar = sltJogos.value;
     var idJogoVincular
 
-    
+
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
@@ -152,67 +154,67 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-        
-        finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-    if(nomeVar.length <= 1){
-       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Insira mais de um caractere)";
+        `Nenhum campo deve estar em branco. Por favor, preencha todos.`;
 
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
-    if (!emailVar.includes('@') || !emailVar.includes('.')){
-        cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Email deve conter '@' e '.')";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-    if (senhaVar.length <= 6){
-        cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Insira uma senha com mais de 6 caracteres)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-    if (confirmacaoSenhaVar != senhaVar){
-        cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Senha deve ser a mesma do 'Confirmação da senha')";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-    if (cpfVar.length != 11){
+    if (nomeVar.length <= 1) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(O CPF deve conter apenas números)";
+        `Insira mais de um caractere`;
 
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
-    if (ceTitulosVar == '#'){
+    if (!emailVar.includes('@') || !emailVar.includes('.')) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Escolha um jogo dentre as opções)";
+        `Email deve conter '@' e '.'`;
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    if (senhaVar.length <= 6) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        `Insira uma senha com mais de 6 caracteres`;
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    if (confirmacaoSenhaVar != senhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        `Senha deve ser a mesma do 'Confirmação da senha'`;
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    if (cpfVar.length != 11) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        `O CPF deve conter apenas números`;
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    if (ceTitulosVar == '#') {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        `Escolha um jogo dentre as opções`;
 
       finalizarAguardar();
       return false;
@@ -220,7 +222,7 @@
       setInterval(sumirMensagem, 5000);
     }
 
-       // Verificando se o código de ativação é de alguma empresa cadastrada
+    // Verificando se o código de ativação é de alguma empresa cadastrada
     for (let i = 0; i < listaTitulos.length; i++) {
       if (listaTitulos[i].codigo_ativacao == ceTitulosVar) {
         idJogoVincular = listaTitulos[i].id

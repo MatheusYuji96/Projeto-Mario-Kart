@@ -4,11 +4,11 @@ var router = express.Router();
 var medidaController = require("../controllers/medidaController");
 
 router.get("/ultimas/:idUsuario", function (req, res) {
-    medidaController.buscarDadosVendas(req, res);
+    medidaController.buscarDadosResultados(req, res);
 });
 
 router.get("/tempo-real/:idUsuario", function (req, res) {
-    medidaController.buscarMedidasEmTempoReal(req, res);
+    medidaController.buscarResultadosEmTempoReal(req, res);
 })
 
 module.exports = router;

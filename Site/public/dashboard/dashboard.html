@@ -39,21 +39,15 @@
             </div>
 
             <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
+                <a href="./simulador.html">
+                    <h3>Simulador</h3>
                 </a>
             </div>
 
             <div class="btn-nav">
 
-                <h3>Gráficos</h3>
+                <h3>Dashboard</h3>
 
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -66,7 +60,7 @@
             <div id="alerta">
             </div>
 
-            <div class="btns-dash" id="btnAquario">
+            <div class="btns-dash" id="btnResult">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
             <div id="graficos">
@@ -105,21 +99,21 @@
 
     let proximaAtualizacao;
 
-    window.onload = exibirTituloDoUsuario();
+    window.onload = exibirResultDoUsuario();
 
-    function exibirTituloDoUsuario() {
+    function exibirResultDoUsuario() {
 
         var titulo = JSON.parse(sessionStorage.Titulo);
         titulo.forEach(item => {
-            document.getElementById("btnAquario").innerHTML += `
-            <button class="btn-chart" onclick="exibirVenda(${item.idUsuario})" id="btnAquario${item.idUsuario}">${item.NomeJogo}</button>
+            document.getElementById("btnResult").innerHTML += `
+            <button class="btn-chart" onclick="exibirResult(${item.idUsuario})" id="btnResult${item.idUsuario}">Resultados</button>
             `
             console.log(titulo)
             console.log(item.idUsuario)
             document.getElementById("graficos").innerHTML += `
                 <div id="grafico${item.idUsuario}" class="display-none">
                     <h3 class="tituloGraficos">
-                        <span id="tituloJogo${item.idUsuario}">${item.NomeJogo}</span>
+                        <span id="tituloJogo${item.idUsuario}">Resultados</span>
                     </h3>
                     <div class="graph">
                         <canvas id="myChartCanvas${item.idUsuario}"></canvas>
@@ -134,129 +128,30 @@
         });
 
         if (titulo.length > 0) {
-            exibirVenda(titulo[0].idUsuario)
-            console.log("exibirVenda")
+            exibirResult(titulo[0].idUsuario)
+            console.log("exibirResult")
         }
     }
 
     function alterarTitulo(idUsuario) {
         var tituloJogo = document.getElementById(`tituloJogo${idUsuario}`)
-        var NomeJogo = JSON.parse(sessionStorage.Titulo).find(item => item.idUsuario == idUsuario).NomeJogo;
-        tituloJogo.innerHTML = "Registros de Resultados do <span style='color: #e6005a'>" + NomeJogo + "</span>"
-        console.log(NomeJogo)
+        /*var NomeJogo = JSON.parse(sessionStorage.Titulo).find(item => item.idUsuario == idUsuario).NomeJogo;*/
+        tituloJogo.innerHTML = "<span style='color: #32b9cd'>Registros de Resultados do</span> <span style='color: #e6005a'>Simulador</span>"
         console.log(tituloJogo)
     }
 
-    function customizarPorTitulos(idUsuario) {
-        if (idUsuario == 1) {
+    function inserirIndicadores(idUsuario) {
             document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
             document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `4º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8.760.000`;
-            document.getElementById('ind4').innerHTML = `Nota no GameRankings`;
-            document.getElementById('kpi4').innerHTML = `93.60%`;
-        } else if (idUsuario == 2) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `2º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `83/100`;
-        } else if (idUsuario == 3) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `4º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `93/100`;
-        } else if (idUsuario == 4) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `2º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `87/100`;
-        } else if (idUsuario == 5) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `3º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `91/100`;
-        } else if (idUsuario == 6) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `2º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `82/100`;
-        } else if (idUsuario == 7) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `1º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `85/100`;
-        } else if (idUsuario == 8) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `1º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `88/100`;
-        } else if (idUsuario == 9) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `1º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `92/100`;
-        } else if (idUsuario == 10) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = 'Número de Downloads';
-            document.getElementById('kpi1').innerHTML = `100.000.000+`;
-            document.getElementById('ind2').innerHTML = 'Nota na Google Play Store';
-            document.getElementById('kpi2').innerHTML = `4.4/5`;
-        } else if (idUsuario == 11) {
-            document.getElementById('dash').style.backgroundImage = "url('../assets/imgs/SMKfundo.jpg')";
-            document.getElementById('ind1').innerHTML = `Vendas Totais da Franquia (em Milhões de Unidades)`;
-            document.getElementById('kpi1').innerHTML = `198.900.000`;
-            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas (Softwares) do Console';
-            document.getElementById('kpi2').innerHTML = `1º`;
-            document.getElementById('ind3').innerHTML = 'Total de Vendas (em Milhões de Unidades)';
-            document.getElementById('kpi3').innerHTML = `8760000`;
-            document.getElementById('ind4').innerHTML = `Nota no Metacritic`;
-            document.getElementById('kpi4').innerHTML = `86/100`;
+            document.getElementById('ind2').innerHTML = 'Posição no Ranking de Vendas/Nintendo Switch (Mario Kart 8 Deluxe)';
+            document.getElementById('kpi2').innerHTML = `1º Lugar`;
+            document.getElementById('ind3').innerHTML = 'Total de Vendas/Mario Kart 8 Deluxe (em Milhões de Unidades)';
+            document.getElementById('kpi3').innerHTML = `69.560.000`;
+            document.getElementById('ind4').innerHTML = `Porcentagem do Total de Vendas/Nintendo Switch 2 (Mario Kart World)`;
+            document.getElementById('kpi4').innerHTML = `46%`;
         }
-    }
 
-    function exibirVenda(idUsuario) {
+    function exibirResult(idUsuario) {
         let todosOsGraficos = JSON.parse(sessionStorage.Titulo);
 
         for (i = 0; i < todosOsGraficos.length; i++) {
@@ -269,7 +164,7 @@
                 elementoAtual.classList.add("display-none")
 
                 // alterando estilo do botão
-                let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].idUsuario}`)
+                let btnAtual = document.getElementById(`btnResult${todosOsGraficos[i].idUsuario}`)
                 if (btnAtual.classList.contains("btn-pink")) {
                     btnAtual.classList.remove("btn-pink")
                 }
@@ -283,7 +178,7 @@
         graficoExibir.classList.add("display-block")
 
         // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idUsuario}`)
+        let btnExibir = document.getElementById(`btnResult${idUsuario}`)
         btnExibir.classList.remove("btn-white")
         btnExibir.classList.add("btn-pink")
     }
@@ -302,7 +197,7 @@
     function obterDadosGrafico(idUsuario) {
         console.log("ObterDados")
         alterarTitulo(idUsuario)
-        customizarPorTitulos(idUsuario)
+        inserirIndicadores(idUsuario)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
@@ -403,7 +298,7 @@
                 response.json().then(function (novoRegistro) {
 
                     obterdados(idUsuario);
-                    // alertar(novoRegistro, idAquario);
+                    // alertar(novoRegistro, idUsuario);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);

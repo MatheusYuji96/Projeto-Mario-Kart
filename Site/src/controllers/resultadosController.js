@@ -1,9 +1,9 @@
-var vendasModel = require("../models/vendasModel");
+var resultadosModel = require("../models/resultadosModel");
 
-function buscarTitulosPorUsuarios(req, res) {
+function buscarResultadosPorUsuarios(req, res) {
   var idUsuario = req.params.idUsuario;
 
-  vendasModel.buscarTitulosPorUsuarios(idUsuario).then((resultado) => {
+  resultadosModel.buscarResultadosPorUsuarios(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -21,6 +21,8 @@ function cadastrar(req, res) {
   var PontFinal1 = req.body.PontFinal1;
   var PontFinal2 = req.body.PontFinal2;
   var ceUsuario = req.body.ceUsuario;
+  var VitoriaP1 = req.body.VitoriaP1;
+  var VitoriaP2 = req.body.VitoriaP2;
 console.log(PontFinal1)
 console.log(PontFinal2)
 console.log(ceUsuario)
@@ -28,12 +30,16 @@ console.log(ceUsuario)
     res.status(400).send("PontFinal1 está undefined!");
   } else if (PontFinal2 == undefined) {
     res.status(400).send("PontFinal2 está undefined!");
+  } else if (VitoriaP1 == undefined) {
+    res.status(400).send("PontFinal2 está undefined!");
+  } else if (VitoriaP2 == undefined) {
+    res.status(400).send("VitoriaP2 está undefined!");
   } else if (ceUsuario == undefined) {
     res.status(400).send("ceUsuario está undefined!");
   } else {
 
 
-    vendasModel.cadastrar(PontFinal1, PontFinal2, ceUsuario)
+    resultadosModel.cadastrar(PontFinal1, PontFinal2, VitoriaP1, VitoriaP2, ceUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -49,6 +55,6 @@ console.log(ceUsuario)
 }
 
 module.exports = {
-  buscarTitulosPorUsuarios,
+  buscarResultadosPorUsuarios,
   cadastrar
 }

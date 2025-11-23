@@ -10,7 +10,7 @@ DataNasc date,
 Senha varchar(45) not null,
 ceTitulos int,
 foreign key (ceTitulos)
-references Títulos(idTitulos));
+references Titulos(idTitulos));
 
 create table Titulos(
 idTitulos int primary key,
@@ -74,7 +74,7 @@ Formato varchar(15),
 constraint chkFormato
 check (Formato in ('Seções', 'Voltas')),
 primary key (ceTitulos, ceCopa, idPistas),
-foreign key (ceTitulos) references Títulos(idTitulos),
+foreign key (ceTitulos) references Titulos(idTitulos),
 foreign key (ceCopa) references Copa(idCopa));
 
 insert into Pistas values
@@ -273,16 +273,15 @@ create table ResultadoSimulador(
 idResult int primary key auto_increment,
 PontFinal1 int,
 PontFinal2 int,
+VitoriaP1 int,
+VitoriaP2 int,
 ceUsuario int,
 foreign key (ceUsuario) references Usuarios(idUsuario));
 
-select * from ResultadoSimulador;
-
-use Mario_Kart;
 select * from Pistas;
 select * from Títulos;
+select *  from Usuarios;
 select * from ResultadoSimulador;
-select * from Usuarios;
 
 select p.nome as Pistas, c.nome as Copa, NomeJogo as 'Game'
 from Pistas p join Titulos
@@ -290,4 +289,8 @@ on p.ceTitulos = idTitulos
 join Copa c on p.ceCopa = idCopa
 where NomeJogo = 'Mario Kart 64';
 
-SELECT * FROM Usuarios WHERE ceTitulos;
+select concat(u.Nome, ' correu na ', p.nome, ' da ', c.Nome, ' do ', t.NomeJogo) as 'Registro de Corridas'
+from Usuarios u join Titulos t on u.ceTitulos = idTitulos
+join Pistas p on p.ceTitulos = idTitulos
+join Copa c on p.ceCopa = idCopa
+where c.Nome = 'Special Cup' and t.NomeJogo = 'Mario Kart 7';

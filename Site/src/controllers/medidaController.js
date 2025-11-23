@@ -1,6 +1,6 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarDadosVendas(req, res) {
+function buscarDadosResultados(req, res) {
 
     const limite_linhas = 7;
 
@@ -8,7 +8,7 @@ function buscarDadosVendas(req, res) {
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarDadosVendas(idUsuario).then(function (resultado) {
+    medidaModel.buscarDadosResultados(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -22,13 +22,13 @@ function buscarDadosVendas(req, res) {
 }
 
 
-function buscarMedidasEmTempoReal(req, res) {
+function buscarResultadosEmTempoReal(req, res) {
 
     var idUsuario = req.params.idUsuario;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
+    medidaModel.buscarResultadosEmTempoReal(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,7 +42,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarDadosVendas,
-    buscarMedidasEmTempoReal
+    buscarDadosResultados,
+    buscarResultadosEmTempoReal
 
 }

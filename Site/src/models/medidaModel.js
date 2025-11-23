@@ -1,11 +1,13 @@
 var database = require("../database/config");
 
-function buscarDadosVendas(idUsuario) {
+function buscarDadosResultados(idUsuario) {
 
     var instrucaoSql = `SELECT
     PontFinal1,
     PontFinal2,
-    idResult
+    idResult,
+    VitoriaP1,
+    VitoriaP2
                     FROM ResultadoSimulador
                     WHERE ceUsuario = ${idUsuario}
                     ORDER BY idResult DESC`;
@@ -14,7 +16,7 @@ function buscarDadosVendas(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idUsuario) {
+function buscarResultadosEmTempoReal(idUsuario) {
 
     var instrucaoSql = `SELECT 
         PontFinal1, 
@@ -29,6 +31,6 @@ function buscarMedidasEmTempoReal(idUsuario) {
 }
 
 module.exports = {
-    buscarDadosVendas,
-    buscarMedidasEmTempoReal
+    buscarDadosResultados,
+    buscarResultadosEmTempoReal
 }
