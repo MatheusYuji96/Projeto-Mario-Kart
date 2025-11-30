@@ -30,7 +30,23 @@ function buscarResultadosEmTempoReal(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarIndicadoresEmTempoReal(idUsuario) {
+
+    var instrucaoSql = `SELECT
+    round(sum(VitoriaP1), 0) as sumVitoria1,
+    round(sum(VitoriaP2), 0) as sumVitoria2,
+    round(avg(PontFinal1), 0) as avgMedia1,
+    round(avg(PontFinal2), 0) as avgMedia2
+                    FROM ResultadoSimulador
+                    WHERE ceUsuario = ${idUsuario}
+                    ORDER BY idResult;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarDadosResultados,
-    buscarResultadosEmTempoReal
+    buscarResultadosEmTempoReal,
+    buscarIndicadoresEmTempoReal
 }

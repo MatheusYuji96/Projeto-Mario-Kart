@@ -66,19 +66,19 @@
             <div id="graficos">
                 <div class="indics">
                     <div class="kpi" id="dado1">
-                        <p id="ind1"></p>
+                        <p id="ind1">Número de Vitórias do Jogador 1</p>
                         <h2 id="kpi1"></h2>
                     </div>
                     <div class="kpi" id="dado2">
-                        <p id="ind2"></p>
+                        <p id="ind2">Número de Vitórias do Jogador 2</p>
                         <h2 id="kpi2"></h2>
                     </div>
                     <div class="kpi" id="dado3">
-                        <p id="ind3"></p>
+                        <p id="ind3">Média de Pontos do Jogador 1</p>
                         <h2 id="kpi3"></h2>
                     </div>
                     <div class="kpi" id="dado4">
-                        <p id="ind4"></p>
+                        <p id="ind4">Média de Pontos do Jogador 2</p>
                         <h2 id="kpi4"></h2>
                     </div>
                 </div>
@@ -140,16 +140,33 @@
         console.log(tituloJogo)
     }
 
-    function inserirIndicadores(idUsuario) {
-            document.getElementById('ind1').innerHTML = `Número de Vitórias do Jogador 1`;
-            document.getElementById('kpi1').innerHTML = `5`;
-            document.getElementById('ind2').innerHTML = 'Número de Vitórias do Jogador 2';
-            document.getElementById('kpi2').innerHTML = `3`;
-            document.getElementById('ind3').innerHTML = 'Média de Pontos do Jogador 1';
-            document.getElementById('kpi3').innerHTML = `49`;
-            document.getElementById('ind4').innerHTML = `Média de Pontos do Jogador 2`;
-            document.getElementById('kpi4').innerHTML = `31`;
-        }
+    function inserirIndicadores(idUsuario, sumVitoria1, sumVitoria2, avgMedia1, avgMedia2) {
+        fetch(`/medidas/indicadores/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    const sumVitoria1 = resposta[0].sumVitoria1;
+                    const sumVitoria2 = resposta[0].sumVitoria2;
+                    const avgMedia1 = resposta[0].avgMedia1;
+                    const avgMedia2 = resposta[0].avgMedia2;
+
+                    console.log(sumVitoria1)
+                    console.log(sumVitoria2)
+                    console.log(avgMedia1)
+                    console.log(avgMedia2)
+                    document.getElementById('kpi1').innerHTML = `${sumVitoria1}`;
+                    document.getElementById('kpi2').innerHTML = `${sumVitoria2}`;
+                    document.getElementById('kpi3').innerHTML = `${avgMedia1}`;
+                    document.getElementById('kpi4').innerHTML = `${avgMedia2}`;
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+    }
 
     function exibirResult(idUsuario) {
         let todosOsGraficos = JSON.parse(sessionStorage.Titulo);

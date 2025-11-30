@@ -278,9 +278,32 @@ VitoriaP2 int,
 ceUsuario int,
 foreign key (ceUsuario) references Usuarios(idUsuario));
 
+select * from ResultadoSimulador;
+
+SELECT
+    sum(VitoriaP1),
+    sum(VitoriaP2),
+    avg(PontFinal1) as Media1,
+    avg(Pontfinal2) as Media2
+                    FROM ResultadoSimulador
+                    WHERE ceUsuario = 7
+                    ORDER BY idResult;
+
+SELECT
+    PontFinal1,
+    PontFinal2,
+    idResult,
+    sum(VitoriaP1) as sumVitoria1,
+    sum(VitoriaP2) as sumVitoria2,
+    avg(Media1) as avgMedia1,
+    avg(Media2) as avgMedia2
+                    FROM ResultadoSimulador
+                    WHERE ceUsuario = 7
+                    ORDER BY idResult;
+
 select * from Pistas;
 select * from Títulos;
-select *  from Usuarios;
+select * from Usuarios;
 select * from ResultadoSimulador;
 
 select Nome from Pistas

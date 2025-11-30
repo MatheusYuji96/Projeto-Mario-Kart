@@ -11,6 +11,10 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     medidaController.buscarResultadosEmTempoReal(req, res);
 })
 
+router.get("/indicadores/:idUsuario", function (req, res) {
+    medidaController.buscarIndicadoresEmTempoReal(req, res);
+});
+
 module.exports = router;
 /*as medidas tem a ver com os aquarios
 as vendas tem a ver com os titulos*/
