@@ -293,6 +293,8 @@
         };
 
         // Adicionando gráfico criado em div na tela
+        Chart.defaults.font.weight = 'Bold'
+        Chart.defaults.font.size = 16
         let myChart = new Chart(
             document.getElementById(`myChartCanvas${idUsuario}`),
             config

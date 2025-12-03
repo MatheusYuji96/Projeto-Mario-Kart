@@ -120,9 +120,17 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-image: url('../assets/imgs/RainbowRoadWorldDash.jpg');
+  background-size: cover;
   height: 100vh;
   overflow: auto;
+}
+
+#dash {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 
 .area-parametros-alerta {
@@ -259,10 +267,6 @@ body {
   display: inline-block;
 }
 
-#dash {
-  background-color: #ffffff;
-}
-
 #graficos {
   justify-content: center;
   width: 90%;
@@ -290,7 +294,6 @@ body {
 .tituloGraficos {
   color: rgb(216, 216, 216);
   display: flex;
-  justify-content: center;
 }
 
 .btn-chart {
@@ -364,7 +367,6 @@ canvas {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #32b9cd;
 }
 
 .kpi {
@@ -373,29 +375,54 @@ canvas {
   border: 2px solid #161618;
   box-shadow: 1px 1px 1px 1px;
   border-radius: 5px;
+  font-size: 17px;
 }
 
-#grafico1 {
+#kpi1 {
+font-size: 30px;
+}
+
+#kpi2 {
+font-size: 30px;
+}
+
+#kpi3 {
+font-size: 30px;
+}
+
+#kpi4 {
+font-size: 30px;
+}
+
+#grafico {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   box-shadow: 2px;
 }
 
 #dado1 {
-  width: 30%;
+  width: 22%;
   justify-content: space-evenly;
+  background-color: #32b9cd;
 }
 
 #dado2 {
   padding: 0 20px 0 20px;
-  width: 30%;
+  width: 22%;
   justify-content: center;
+  background-color: #32b9cd;
 }
 
 #dado3 {
   justify-content: center;
+  background-color: #32b9cd;
 }
 
 #dado4 {
   justify-content: center;;
+  background-color: #32b9cd;
 }
 
 .header-left {
