@@ -270,12 +270,12 @@ insert into Pistas values
 (11, 4, 4, "Rainbow Road", 'Espacial', 'Voltas');
 
 create table ResultadoSimulador(
+ceUsuario int,
 idResult int auto_increment,
 PontFinal1 int,
 PontFinal2 int,
 VitoriaP1 int,
 VitoriaP2 int,
-ceUsuario int,
 primary key (idResult, ceUsuario),
 foreign key (ceUsuario) references Usuarios(idUsuario));
 

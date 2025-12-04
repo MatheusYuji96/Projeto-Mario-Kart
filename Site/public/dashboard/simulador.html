@@ -58,7 +58,7 @@
             <div class="container1">
                 <h1>Simulador</h1>
                 <h3>Vamos lá!! Quer imaginar como funciona uma competição em Mario Kart? Então vamos brincar neste
-                    simulador de torneio!!<br><br>Como ele funciona: Você digitará seu nome, escolherá um piloto e a quantidade de corridas. Cada corrida possui uma pontuação que varia de 1 a 15 e os pontos dos jogadores serão gerados aleatoriamente.<br><br>Após clicar em "Definir Pontuação", um botão para os famosos itens de trapaça de Mario Kart aparecerá. E dependendo da sua sorte, os itens irão ou não reduzir sua pontuação. O vencedor será aquele que obtiver a maior quantidade de pontos ao final. Boa sorte!!</h3><br><br>
+                    simulador de torneio!!<br><br>Como ele funciona: Você digitará os nomes dos jogadores, escolherá os pilotos e um número entre 3 e 12 para as corridas. Cada corrida possui uma pontuação que varia de 1 a 15 e os pontos dos jogadores serão gerados aleatoriamente.<br><br>Após clicar em "Definir Pontuação", um botão para os famosos itens de trapaça de Mario Kart aparecerá. E dependendo da sua sorte, os itens irão ou não reduzir sua pontuação. O vencedor será aquele que obtiver a maior quantidade de pontos ao final. Boa sorte!!</h3><br><br>
                 <div class="simula" id="simcorrida" style="display: block;">
                     <span>Quais os Nomes dos Jogadores?</span><br><br>
                     <span>Jogador 1: </span><input type="text" id="iptNome1">
@@ -169,7 +169,7 @@
             PontFinal2 = PontFinal2 + P2[sequencia];
             sequencia++
         }
-        msgParcial.innerHTML = `<b>${nome1}</b>, controlando <b>${nomepiloto1}</b>, obteve os seguintes pontos nas corridas: ${P1}<br>Somatório parcial dos pontos: <b>${PontFinal1} pontos</b><br><br><b>${nome2}</b>, controlando <b>${nomepiloto2}</b>, obteve os seguintes pontos nas corridas: ${P2}<br>Somatório parcial dos pontos: <b>${PontFinal2} pontos</b>`
+        msgParcial.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>, controlando <b>${nomepiloto1}</b>, obteve os seguintes pontos nas corridas: ${P1}<br>Somatório parcial dos pontos: <b>${PontFinal1} pontos</b><br><br><b><span style="color: yellow">${nome2}</span></b>, controlando <b>${nomepiloto2}</b>, obteve os seguintes pontos nas corridas: ${P2}<br>Somatório parcial dos pontos: <b>${PontFinal2} pontos</b>`
         surpresa.style.display = 'block';
         parcial.style.display = 'none';
     }
@@ -179,58 +179,58 @@
         let sorteioRisco1 = Math.random()
         if ((sorteioRisco1 * 9 + 1).toFixed(0) == 1) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML = `<b>${nome1}</b>: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKbanana.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 2) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML = `<b>${nome1}</b>: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverde.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 3) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML = `<b>${nome1}</b>: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverm.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 5) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML = `<b>${nome1}</b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKbob.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 8) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML = `<b>${nome1}</b>: Você levou choque de um raio e perdeu 16 pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você levou choque de um raio e perdeu 16 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKraio.jpg" style="width: 90px; height: 110px"><br><br>`
         } else if ((sorteioRisco1 * 9 + 1).toFixed(0) == 10) {
             PontFinal1 = PontFinal1 - (Number(sorteioRisco1 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML = `<b>${nome1}</b>: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKcascoazul.jpg" style="width: 100px; height: 100px"><br><br>`
         } else {
-            msgItens.innerHTML = `<b>${nome1}</b>: Você passou ileso pelos itens e não perdeu pontos<br><br>`
+            msgItens.innerHTML = `<b><span style="color: aqua">${nome1}</span></b>: Você passou ileso pelos itens e não perdeu pontos<br><br>`
         }
         let sorteioRisco2 = Math.random()
         if ((sorteioRisco2 * 9 + 1).toFixed(0) == 1) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você escorregou na casca de banana e perdeu 2 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKbanana.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 2) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você levou dano de um casco verde e perdeu 4 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverde.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 3) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você levou dano de um casco vermelho e perdeu 6 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKcascoverm.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 5) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você foi explodido por uma Bob-omb e perdeu 10 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKbob.jpg" style="width: 100px; height: 100px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 8) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou choque de um raio e perdeu 16 pontos<br><br>`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você levou choque de um raio e perdeu 16 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKraio.jpg" style="width: 90px; height: 110px"><br><br>`
         } else if ((sorteioRisco2 * 9 + 1).toFixed(0) == 10) {
             PontFinal2 = PontFinal2 - (Number(sorteioRisco2 * 9 + 1).toFixed(0)) * 2
-            msgItens.innerHTML += `<b>${nome2}</b>: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você levou um casco azul na cabeça e perdeu 20 pontos<br><br>`
             msgItens.innerHTML += `<img src="../assets/imgs/MKcascoazul.jpg" style="width: 100px; height: 100px"><br><br>`
         } else {
-            msgItens.innerHTML += `<b>${nome2}</b>: Você passou ileso pelos itens e não perdeu pontos`
+            msgItens.innerHTML += `<b><span style="color: yellow">${nome2}</span></b>: Você passou ileso pelos itens e não perdeu pontos`
         }
         final.style.display = 'block';
         surpresa.style.display = 'none';
@@ -239,10 +239,10 @@
         let nome1 = iptNome1.value;
         let nome2 = iptNome2.value;
         if (PontFinal1 > PontFinal2) {
-            mensagem.innerHTML = `<b>Parabéns, ${nome1}!! Você venceu a competição!!</b>`
+            mensagem.innerHTML = `<b>Parabéns, <span style="color: aqua">${nome1}</span>!! Você venceu a competição!!</b>`
             VitoriaP1++
         } else if (PontFinal2 > PontFinal1) {
-            mensagem.innerHTML = `<b>Parabéns, ${nome2}!! Você venceu a competição!!</b>`
+            mensagem.innerHTML = `<b>Parabéns, <span style="color: yellow">${nome2}</span>!! Você venceu a competição!!</b>`
             VitoriaP2++
         } else if (PontFinal1 == PontFinal2) {
             mensagem.innerHTML = `Temos um EMPATEEE!!`
@@ -253,7 +253,7 @@
         if (PontFinal2 < 0) {
             PontFinal2 = 0;
         }
-        mensagem.innerHTML += `<br><br><b>Resultados Finais: ${nome1} = ${PontFinal1} pontos<br><br>${nome2} = ${PontFinal2} pontos</b>`
+        mensagem.innerHTML += `<br><br><b>Resultados Finais: <span style="color: aqua">${nome1}</span> = ${PontFinal1} pontos<br><br><span style="color: yellow">${nome2}</span> = ${PontFinal2} pontos</b>`
         fetch("/resultados/cadastrar", {
             method: "post",
             headers: {

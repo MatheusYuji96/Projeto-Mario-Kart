@@ -522,8 +522,13 @@ font-size: 30px;
   background-image: url('../assets/imgs/MKWart2.jpg');
   background-size: cover;
   background-position: center;
-  height: 150vh;
+  font-size: large;
+  height: 200vh;
   display: flex;
+}
+
+.simulador h1 {
+  color: lightblue;
 }
 
 .container1 {
@@ -539,6 +544,10 @@ font-size: 30px;
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.simula input {
+  font-size: medium;
 }
 
 .container1 h1, h3{

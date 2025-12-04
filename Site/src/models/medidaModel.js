@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarDadosResultados(idUsuario) {
+function buscarDadosResultados(idUsuario, limite_linhas) {
 
     var instrucaoSql = `SELECT
     PontFinal1,
@@ -10,7 +10,7 @@ function buscarDadosResultados(idUsuario) {
     VitoriaP2
                     FROM ResultadoSimulador
                     WHERE ceUsuario = ${idUsuario}
-                    ORDER BY idResult DESC`;
+                    ORDER BY idResult DESC LIMIT ${limite_linhas}`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
