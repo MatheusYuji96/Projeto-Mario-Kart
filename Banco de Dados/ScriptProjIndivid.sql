@@ -125,7 +125,7 @@ insert into Pistas values
 (3, 8, 1, 'Luigi Circuit', 'Circuito', 'Voltas'),
 (3, 8, 2, 'Sky Garden', null, 'Voltas'),
 (3, 8, 3, 'Cheep Cheep Island', 'Praia', 'Voltas'),
-(3, 8, 4,'Sunset Wilds', 'Deserto', 'Voltas'),
+(3, 8, 4, 'Sunset Wilds', 'Deserto', 'Voltas'),
 (3, 3, 1, 'Snow Land', 'Neve', 'Voltas'),
 (3, 3, 2, 'Ribbon Road', null, 'Voltas'),
 (3, 3, 3, 'Yoshi Desert', 'Deserto', 'Voltas'),
@@ -267,7 +267,7 @@ insert into Pistas values
 (11, 8, 4, "Bowser's Castle", 'Fogo', 'Voltas'),
 (11, 4, 1, 'Acorn Heights', null, 'Voltas'),
 (11, 4, 3, 'Peach Stadium', 'Estádio', 'Voltas'),
-(11, 4, 4, "Rainbow Road", 'Espacial', 'Voltas');
+(11, 4, 4, 'Rainbow Road', 'Espacial', 'Voltas');
 
 create table ResultadoSimulador(
 ceUsuario int,
